@@ -1,8 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model IEnumerable<DuckViewModel>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1 class="text-center">Ducks</h1>
+<hr />
+<div class="align-items-center" style="margin-bottom: 100px">
+    <table class="table" style="margin-left: auto; margin-right: auto">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Owner name</th>
+        </tr>
+        </thead>
+        @foreach (var duck in Model)
+        {
+            <tr>
+                <td>@duck.Name</td>
+                <td>@duck.UserName</td>
+            </tr>
+        }
+
+    </table>
+</div> 
+
+<form asp-action="Create" asp-controller="Duck" method="get">
+    <button class="btn btn-primary float-right", type="submit">
+        Create a new duck
+    </button>
+</form>
