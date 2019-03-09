@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Ducker.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Ducker
 {
@@ -39,16 +40,18 @@ namespace Ducker
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<DuckerDbContext>();
 
             services.AddScoped<IRepository, DuckerDbContext>();
-
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -68,12 +71,30 @@ namespace Ducker
 
             app.UseAuthentication();
 
+            CreateRoles(serviceProvider).Wait();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            if (await roleManager.RoleExistsAsync("Administrator"))
+            {
+                return;
+            }
+
+            await roleManager.CreateAsync(new IdentityRole("Administrator"));
+            var adminUser = userManager.Users.Single(u => u.UserName == "registermen@gmail.com");
+
+            await userManager.AddToRoleAsync(adminUser, "Administrator");
         }
     }
 }

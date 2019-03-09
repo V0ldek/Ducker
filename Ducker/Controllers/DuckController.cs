@@ -30,7 +30,7 @@ namespace Ducker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CreateDuckViewModel duck)
         {
-            _repository.Ducks.Add(new Duck { Name = duck.Name, Color = duck.ColorAsEnum, UserId = _userManager.GetUserId(HttpContext.User)});
+            _repository.Ducks.Add(new Duck { Name = duck.Name, Color = duck.ColorAsEnum, UserId = _userManager.GetUserId(User)});
             await _repository.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");
