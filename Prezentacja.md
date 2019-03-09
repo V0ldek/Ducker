@@ -1,6 +1,8 @@
-﻿# Ostre C
+﻿# Pobieżne wprowadzenie do podstaw części C#, Tom I, Część I
+Strona 1/60
 
-## Plan
+## 0. Plan.
+0. Plan.
 1. Co to C#/.NET (Framework/Core/Standard)/CLR/ABC/XYZ?
 2. Jak poprawnie C#?
 3. "Yyy, na MIMie nie uczą o SOLID!!!1"
@@ -37,11 +39,11 @@ Oczywiście nikt normalny w tym nie pisze.
 
 #### .NET Framework (obecnie 4.7.3) - wielka biblioteka do języków uruchamianych w CLR, w tym C#. Działa tylko pod Windowsem.
 #### .NET Core (obecnie 2.2, 3.0 w drodze) - analogicznie wielka biblioteka, ale wieloplatformowa i open-source.
-#### .NET Standard (obecnie 2.0) - standard, który musi spełniać każda implementacja .NETa, jest wiec podzbiorem przecięcia Frameworka i Core'a. Obejmuje np. podstawowe kolekcje.
+#### .NET Standard (obecnie 2.0) - standard, który musi spełniać każda implementacja .NETa, jest więc podzbiorem przecięcia Frameworka i Core'a. Obejmuje np. podstawowe kolekcje.
 
 ## 2. Jak poprawnie C#?
 
-C# jest **obiektowym**, **statycznie typowanym**, **kompilowanym** językiem. Ma też najdłuższą listę obejmowanych paradygmatów jaką w życiu widziałem na Wikipedii. Jest imperatywny, deklaratywny, obiektowy, funkcyjny, generyczny, współbieżny, zajebisty i zapewne istnieje też biblioteka, która parzy kawę.
+C# jest **obiektowym**, **statycznie typowanym**, **kompilowanym** językiem. Ma też najdłuższą listę obejmowanych paradygmatów jaką w życiu widziałem na Wikipedii. Jest imperatywny, deklaratywny, obiektowy, funkcyjny, generyczny, współbieżny, zajebisty i zapewne istnieje do niego biblioteka, która parzy kawę.
 C# jest zorientowany na bezpieczeństwo i wygodę developera. Tak długo, jak poruszamy się po świecie CLR-managed kodu najgorsze co może nas spotkać to `NullReferenceException` albo błąd logiki. Nie da się zaorać sobie kawałka pamięci, zapomnieć coś zwolnić, a momenty, w których krzyczymy na język, że jest upośledzony (vide Java) oraz takie, w których język krzyczy na nas, że jesteśmy za głupi (vide C++), są ograniczone do minimum. C# ma też wspaniałe środowisko w postaci tandemu VisualStudio + ReSharper.
 Ale nawet wtedy pozwala nam porzucić granice zdrowego rozsądku i udostępnia typowanie dynamiczne (`dynamic`) oraz magiczny keyword `unsafe`, który wyłącza GC, ABS i wspomaganie kierownicy.
 W tej prezentacji jednak nie będziemy poza rzeczone granice wychodzić.
@@ -1910,9 +1912,486 @@ Każda zależność w aplikacji powinna być skonfigurowana w podobny sposób. P
 
 Większość rzeczy związanych z czystym kodem i elegancką architekturą ma dwa cele - po pierwsze, wprowadzenie zmiany powinno wymagać nakładu pracy mniej więcej liniowo proporcjonalnego do rozmiaru tej zmiany. Po drugie, kod musi być testowalny. Nie będziemy tutaj poruszać zagadnień Test Driven Development, ale postaramy się przynajamniej nie robić Yolo Driven Development.
 
-Testowanie jest w swych założeniach banalne - chcemy wziąć interfejs danego elementu i przetestować, czy metody w tym interfejsie robią to, co powinny.
+Testowanie jest w swych założeniach banalne - chcemy wziąć interfejs danego elementu i przetestować, czy metody w tym interfejsie robią to, co powinny. Przypatrzymy się bardzo na szybko XUnitowi jako frameworkowi do testów i NSubstitute do mocków.
 
-## 5. Jak działa Entity Framework
+#### Założenia unit-testów
+
+Unit testy powinny być:
+- Deterministyczne - ten sam kod zawsze przechodzi lub zawsze failuje dany test.
+- Niezależne - wykonanie jednego testu nie może w żaden sposób wpłynąć na wykonanie innych
+- Zwięzłe - jeśli test jest długi, prawdopodobnie metoda jest zbyt skomplikowana
+- Odizolowane - jeden unit test powinien testować jeden unit, wszystkie zależności powinny być zmockowane
+
+Standardowym workflowem do tworzenia unit testów jest AAA - Arrange, Act, Assert. Zobaczmy przykładowy test klasy `Calculator`.
+
+```csharp
+public class CalculatorUnitTests
+{
+    [Fact]
+    public void Square_GivenAnyInteger_ReturnsItsSquare()
+    {
+        // ARRANGE
+        const int value = 42;
+        const int expectedSquare = value * value;
+        var systemUnderTest = new Calculator();
+		
+		// ACT
+        var actualSquare = systemUnderTest.Square(value);
+
+        // ASSERT
+ 
+        Assert.Equal(expectedSquare, actualSquare);
+    }
+}
+```
+
+XUnit rozróżnia dwa rodzaje testów - fakty i teorie. Fakty są prawdziwe zawsze, niezależnie od danych testowych, teorie tylko dla niektórych.
+
+Spróbujmy przetestować coś korzystającego z naszego repozytorium i wepchnijmy tam jak najwięcej rzeczy o testowaniu. Załóżmy, że mamy metodę, która zwraca losowo wybraną kaczkę, a nasz serwis przyjmuje kolor i zwraca imię kaczki, jeśli trafiliśmy w kolor, a jeśli nie, to rzuca wyjątek. Pomińmy sensowność takiego serwisu i metody w repo.
+
+```csharp
+public class DuckGuesser
+{
+    private readonly IRepository _repository;
+
+    public Duck(IRepository repository)
+    {
+        _repository = repository;
+    }    
+
+	public string GuessColor(Color color)
+	{
+	    var duck = _repository.GetRandomDuck();
+	    
+	    return duck.Color == color ? duck.Name : throw ApplicationException($"Wrong color, guessed {color}, was {duck.Color}.");
+	}
+}
+```
+```csharp
+public class DuckGuesserUnitTests
+{
+    public static TheoryData<Duck> DuckData => new TheoryData<Duck>
+    {
+        {
+            new Duck("Jacuś", Color.Yellow);
+        },
+        {
+            new Duck("Jacuś", Color.Red);
+        },
+        {
+            new Duck("Yellow", Color.Yellow);
+        },
+        {
+            new Duck("Yellow", Color.Green);
+        }
+    }
+
+    [Theory]
+    [MemberData(nameof(DuckData))]
+    public void GuessColor_WhenColorMatchesWithGivenDuck_ReturnsDuckName(Duck duck)
+    {
+        // ARRANGE
+        var expectedName = duck.Name;
+        var color = duck.Color;
+        
+        var repository = Substitute.For<IRepository>();
+        repository.GetRandomDuck().Returns(duck);
+        
+        var systemUnderTest = new DuckGuesser(repository);
+
+        // ACT
+        var resultName = systemUnderTest.GuessColor(color);
+
+        // ASSERT
+        Assert.Equal(expectedName, resultName);
+    }
+
+    [Theory]
+    [MemberData(nameof(DuckData))]
+    public void GuessColor_WhenColorDoesNotMatchWithGivenDuck_ThrowsApplicationException(Duck duck)
+    {
+        // ARRANGE
+        var color = duck.Color == Color.Yellow ? Color.Green : Color.Yellow;
+        
+        var repository = Substitute.For<IRepository>();
+        repository.GetRandomDuck().Returns(duck);
+        
+        var systemUnderTest = new DuckGuesser(repository);
+
+        // ACT & ASSERT
+        Assert.Throws<ApplicationException>(() => systemUnderTest.GuessColor(color));
+    }
+}
+```
+
+Ten test zdecydowanie nie jest najlepszy - co można by w nim poprawić?
+
+## 4. Jak działa ASP .NET?
+
+Zakładam, że wiemy, jak działa internet, protokół HTTP, że HTML jest statyczny i trzeba niestety używać JS-a itd.
+
+ASP .NET to framework do server-side web-app programming. Potrafi tworzyć ładne strony, generować  HTML-a a także da się w nim zrobić wydajne REST API. My będziemy się skupiać na tworzeniu stron.
+
+### Dlaczego asynchroniczne przetwarzanie jest ważne?
+
+Na serwerze, na którym odpalony jest ASP .NET jest pewna pula wątków, tzw. worker threads. W momencie, w którym dostaniemy HTTP request z zewnątrz, jeden z tych wątków się zrywa i zaczyna na niego odpowiadać. Do zrobienia może mieć sporo, musi najpierw zrobić routing, czyli znaleźć metodę, która ma na zapytanie odpowiedzieć; później wysyła zapytania do serwisów, co w przypadku architektury mikroserwisowej łączy się z wysłaniem czegoś po sieci. Na koniec z reguły trzeba dostać się do bazy danych, a to też trochę trwa. No i jak już w końcu zrobimy to co trzeba, to należy z tym wrócić i wysłać odpowiedź.
+
+Przy prostym zapytaniu, podróż do bazy danych zajmie lwią część czasu odpowiedzi na request. Jeśli serwer czeka kilkanaście milisekund na odpowiedź bazy, to prawdopodobnie nic w tym czasie nie robi. Gdyby tylko dało się np. rzucić request do bazy i zająć się czymś innym, w czasie gdy on się przetwarza...
+
+### `Task<T>` oraz `async`/`await`
+
+Wszystkie metody, które
+- wysyłają HTTP requesty,
+- pytają o coś bazę danych,
+- wczytują albo zapisują rzeczy do pliku,
+
+etc. mają swoje odpowiedniki `Async` (konwencja nazewnicza `MethodNameAsync`). Takie metody zwracają obiekty typu `Task` lub `Task<T>`, które implementują `IAwaitable`. Załóżmy, że chcemy wysłać GET request i coś tam zrobić z odpowiedzią.
+
+```csharp
+public static readonly HttpClient client = new HttpClient();
+
+var getTask = client.GetStringAsync("http://www.example.com/recepticle.aspx");
+```
+Teraz możemy sobie coś zrobić w międzyczasie. Kiedy będziemy potrzebowali odpowiedzi, robimy `await`.
+
+```csharp
+var responseString = await getTask;
+```
+
+`IAwaitable<T>` gwarantuje, że wywołanie `await` zwróci nam coś typu `T` (albo wystrzeli wyjątkiem). Jeśli to zadanie nie zostało zakończone, to zmienimy control flow - wykonanie wróci do miejsca, w którym wywołana została nasza metoda. Trzeba poinformować o tym kompilator keywordem `async` i zwrócić `Task` lub `Task<T>`.
+
+```csharp
+public async Task SendRequestAsync()
+{
+    var getTask = client.GetStringAsync("http://www.example.com/recepticle.aspx");
+
+    SpinRoundAndRoundAndRound();
+
+    var responseString = await getTask;
+
+    DoStuffWithResponse(responseString);
+}
+```
+
+Teraz ktokolwiek, kto wywołał tę metodę, może kręcić się w kółko aż mu się nie znudzi i nie zrobi `await` na zwróconym przez nas `Tasku`.
+
+W szczególności, nasz worker thread może stwierdzić, że skoro nie ma nic do roboty podczas gdy pakiety lecą sobie w świat do bazy danych, to zajmie się requestem innego użytkownika. W momencie kiedy innermost `Task` się zakończy, przybiegnie dokończyć swoją pracę (**uwaga:** nie musi to być ten sam wątek).
+
+### Dygresja: `Task.Run`
+O ile programowanie asynchroniczne bardzo się przydaje przy IO-bound operations, to do CPU-bound operations również mamy bardzo proste i skuteczne mechanizmy. Po pierwsze, możemy odpalić dowolne zadanie i skierować je do puli wątków za pomocą `Task.Run`.
+
+```csharp
+var task = Task.Run(() => SpinRoundAndRoundAndRound());
+SpinRoundAndRoundAndRound();
+await task;
+```
+
+Możemy odpalić tak wiele zadań i poczekać aż wszystkie się skończą, w nadziei, że na wielordzeniowym procesorze dostaniemy speedup.
+
+```csharp
+decimal pi;
+decimal e;
+decimal one;
+
+var tasks = new List<Task>
+{
+    Task.Run(() => pi = CalculatePi()),
+    Task.Run(() => e = CalculateE()),
+    Task.Run(() => one = CalculateOne())
+};
+
+await Task.WaitAll(tasks);
+```
+Uwaga: robienie `await` jako ostatniej instrukcji w metodzie nie ma absolutnie żadnego sensu. Lepiej zwrócić taki `Task`.
+
+### Dygresja: Parallel
+
+Mamy też statyczne metody `Parallel.For` i `Parallel.Foreach`, które robią to co można się domyślić, że robią. Nie będziemy wnikać w szczegóły.
+
+### Dygresja: PLINQ
+
+Istnieje też współbieżna wersja LINQ, którą można zawołać konwertując `IEnumerable` za pomocą `AsParallel()`, ale o LINQ będzie później.
+
+### MVC
+ASP .NET Core pozwala na tworzenie aplikacji w dwóch UI architectural design patterns - MVVM (Razor Pages) i MVC. My skupimy się na MVC, które jest już established technologią.
+
+MVC to skrót od Model-View-Controller.
+
+![enter image description here](https://upday.github.io/images/blog/mvc/mvc.png)
+
+- **Model** - zawiera logikę biznesową i reprezentuje domenę aplikacji;
+- **View** - wyświetla model i zajmuje się szeroko rozumianą prezentacją danych;
+- **Controller** - reaguje na input użytkownika, wysyłając w odpowiedzi odpowiednie widoki lub informując o tym Model.
+
+W ASP .NET MVC widoki to widoki, kontrolery to kontrolery, a model to cała aplikacja pod spodem. Można go podzielić na kilka warstw (np. serwisy i repozytorium).
+
+### Kontrolery i routing
+
+Każdy kontroler ma publiczne metody, zwane akcjami. Każda z nich reprezentuje pewien HTTP request, w przypadku aplikacji UI z reguły GET lub POST. Domyślnie odwołanie się do adresu `http://myapp.com/Controller/Action` wywoła akcję o nazwie `Action` w kontrolerze o nazwie `Controller`. Taka akcja zwraca pochodną `ActionResult`, która jest wysyłana do klienta. Najczęściej będzie to widok w przypadku apki webowej.
+
+Routing można dowolnie zmieniać i tworzyć własne reguły co i na co jest mapowane.
+
+### Widoki
+
+Widoki są pisane w HTML-u z Razorem (rozszerzenie .cshtml), który pozwala na wykonanie kodu w C# podczas generowania HTML-a. Podstawową częścią danego widoku jest Model do niego przekazany. Z reguły nie jest on tożsamy z Modelem z MVC - stanowi tylko jakiś snapshot danych wyciągniętych z bazy danych i przedstawionych w przystępnej formie użytkownikowi. Z tego też powodu często mówi się na nie ViewModels.
+
+Przykładowy widok w .cshtml może wyglądać np. tak:
+```html
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<DuckViewModel>
+
+<h1 class="text-center">Ducks</h1>
+<hr />
+<div class="align-items-center" style="margin-bottom: 100px">
+    <table class="table" style="margin-left: auto; margin-right: auto">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Owner name</th>
+        </tr>
+        </thead>
+        @foreach (var duck in Model)
+        {
+            <tr>
+                <td>@duck.Name</td>
+                <td>@duck.UserName</td>
+            </tr>
+        }
+
+    </table>
+</div> 
+
+<form asp-action="Create" asp-controller="Duck" method="get">
+    <button class="btn btn-primary float-right", type="submit">
+        Create a new duck
+    </button>
+</form>
+```
+
+Uważny słuchacz zauważy brak takich tagów jak `<body>` czy `<head>`. To dlatego, że w pliku `_ViewStart.cshtml`, który zostaje wczytany na samym początku tworzenia widoku, ustawiony został `Layout`.
+
+```html
+<!-- _Layout.cshtml -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ducker</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <!-- ... -->
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <!-- ... -->
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - Ducker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <!-- ... -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+```
+
+Nasz widok jest wklejany tam, gdzie `@RenderBody()`.
+
+### Formularze i walidacja
+
+Aby stworzyć np. nową kaczkę, musimy stworzyć kontroler,  który przekaże użytkownikowi odpowiedni widok. Na tym widoku  musi znajdować się formularz z danymi kaczki i przycisk do submitu. Tenże przycisk wywoła inną akcję w kontrolerze, która zapisze kaczkę i przekieruje użytkownika z powrotem na stronę główną.
+
+Napiszmy więc kontroler, będzie potrzebował od nas repozytorium i dwóch akcji `Create` - jednego GET-a, który zwróci formularz, i jednego POST-a, który przyjmie wypełnione dane kaczki i zapisze ją do repozytorium.
+
+```csharp
+public class DuckController : Controller
+{
+    private readonly IRepository _repository;
+
+    public DuckController(IRepository repository)
+    {
+        _repository = repository;
+    }
+
+    public ActionResult Create() => View(new CreateDuckViewModel());
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Create(CreateDuckViewModel duck)
+    {
+        _repository.Ducks.Add(new Duck { Name = duck.Name, Color = duck.Color});
+        await _repository.SaveChangesAsync();
+
+        return RedirectToAction("Index", "Home");
+    }
+}
+```
+
+Upewnijmy się szybko, że skonfigurowaliśmy nasze repozytorium. W ASP .NET mamy statyczną klasę `Startup`, której metody są wywoływane przy konfiguracji serwera. Znajdziemy tam metodę `ConfigureServices(IServiceCollection services)`, służącą do skonfigurowania DI.
+
+```csharp
+/* ... */
+services.AddDbContext<DuckerDbContext>(options =>
+    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+      
+services.AddScoped<IRepository, DuckerDbContext>();
+
+services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+/* ... */
+```
+`Configuration` odwołuje się do pliku `appsettings.json`.  Tam znajdziemy element `"ConnectionStrings"`:
+```json
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=ducker_db;UserId=postgres;Password=postgres"
+  }
+```
+Wszystko wygląda w porządku, stwórzmy teraz model. Będziemy potrzebowali drop-down menu z dostępnymi kolorami. Posłużą nam do tego obiekty `SelectListItem`.
+
+```csharp
+public class CreateDuckViewModel
+{
+    public string Name { get; set; }
+    public string Color { get; set; }
+        
+    public List<SelectListItem> Colors { get; }
+
+    public Color ColorAsEnum => Enum.Parse<Color>(Color);
+
+    public CreateDuckViewModel()
+    {
+        var colorsArray = Enum.GetNames(typeof(Color));
+
+        Colors = colorsArray.Select(c => new SelectListItem(c, c)).ToList();
+    }
+}
+```
+Napotykamy na standardowy kłopot HTML-a - jest statyczny i nie ma pojęcia o naszym kodzie w C# i naszych ładnych `enumach`. Musi operować na stringach, musimy więc przerobić nasz `enum` na stringi, a potem wynikowy string z  powrotem na `enum`.
+
+Teraz przydałaby się nam walidacja. W ASP .NET osiągamy to za pomocą atrybutów. Atrybutów do walidacji jest cała masa, a nawet jeśli nie ma takiego, jakiego byśmy chcieli, to możemy sobie 
+
+a) napisać własny i połączyć z JS-em na fronice,
+b) użyć `RemoteAttribute`, który przyjmuje akcję kontrolera zwracającą `true` lub `false`.
+
+Pododawajmy więc sobie jakieś atrybuty.
+
+```csharp
+[Display(Name = "Create duck.")]
+public class CreateDuckViewModel
+{
+    [Display(Name = "Name")]
+    [MaxLength(32)]
+    [Required]
+    [RegularExpression(@"^(\p{L}+\s?)*$")]
+    public string Name { get; set; }
+
+    [Display(Name = "Color")]
+    [Required]
+    public string Color { get; set; }
+    
+    public List<SelectListItem> Colors { get; }
+
+    public Color ColorAsEnum => Enum.Parse<Color>(Color);
+
+    public CreateDuckViewModel()
+    {
+        var colorsArray = Enum.GetNames(typeof(Color));
+
+        Colors = colorsArray.Select(c => new SelectListItem(c, c)).ToList();
+    }
+}
+```
+Jesteśmy gotowi do stworzenia widoku.
+
+```html
+@model Ducker.Models.CreateDuckViewModel
+@{
+    ViewData["Title"] = "Create a duck";
+}
+
+<h4>@Html.DisplayNameFor(model => model)</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control"/>    
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color"></label>
+                <select asp-for="Color" asp-items="Model.Colors" class="form-control"></select>
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+```
+
+### Identity
+
+ASP .NET Core pozwala na zupełnie bezbolesne zintegrowanie systemu kont z naszą aplikacją. Wystarczy dopisać magiczne linijki w `Startup.ConfigureServices`
+
+```csharp
+services.AddDefaultIdentity<IdentityUser>()
+    .AddRoles<IdentityRole>()
+    .AddRoleManager<RoleManager<IdentityRole>>()
+    .AddDefaultUI(UIFramework.Bootstrap4)
+    .AddEntityFrameworkStores<DuckerDbContext>();
+```
+
+i w `Configure`
+
+```csharp
+app.UseAuthentication();
+```
+
+Dodatkowo nasza baza danych powinna dziedziczyć po `IdentityDbContext`, który ma już odpowiednie tabele skonfigurowane.
+
+Teraz możemy zabezpieczyć nasze akcje `Create` przed dostępem z zewnątrz, oznaczając je atrybutem `AuthorizedAttribute`, który nie wpuszcza użytkowników niezalogowanych. Można ten mechanizm rozszerzyć o blokowanie użytkowników nienależących do konkretnych ról, np. nieadminów.
+
+### Co dalej?
+
+ASP .NET jest oczywiście o wiele potężniejszym narzędziem niż tylko maszynką do routingu i generowania widoków. W `Startup` możemy sobie skonfigurować cały request pipeline - po kolei wszystkie kroki, które nasza aplikacja wykonuje na requeście i responsie. Tag helpery, które już widzieliśmy w postaci `asp-for` i `asp-action`/`asp-controller` pozwalają na proste tworzenie skomplikowanych kontrolek z JS-em w środku. No ale na więcej zabawy nie starczy nam czasu.
+
+
+## 5. Jak działa Entity Framework?
 
 Entity Framework to ORM - Object-Relational Mapping. Służy do połączenia interfejsem środowiska .NET z relacyjną bazą danych. EF korzysta z trzech rzeczy:
 
