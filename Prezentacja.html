@@ -399,7 +399,7 @@ duck<span class="token punctuation">.</span><span class="token function">Squeak<
 
 Duck duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 BetterDuck betterDuck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BetterDuck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BetterDuck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">SqueakADuck</span><span class="token punctuation">(</span>duck<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">SqueakADuck</span><span class="token punctuation">(</span>betterDuck<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -419,7 +419,7 @@ Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <spa
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BetterDuck</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BetterDuck</span> <span class="token punctuation">:</span> Duck
 <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
@@ -429,7 +429,7 @@ Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <spa
 
 Duck duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 BetterDuck betterDuck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BetterDuck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BetterDuck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 duck<span class="token punctuation">.</span><span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 betterDuck<span class="token punctuation">.</span><span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1122,7 +1122,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <p>Można te typy łączyć ze sobą</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token string">"Jacuś"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> mix <span class="token operator">=</span> @$<span class="token string">"{duck.Name}\n"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> mix <span class="token operator">=</span> $<span class="token string">@"{duck.Name}\n"</span><span class="token punctuation">;</span>
 Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <pre><code>&gt; Jacuś\n
@@ -2357,7 +2357,35 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <h4 id="async">Async</h4>
 <p>Wszystkie operacje LINQ to Entities, które powodują wykonanie query, mają swoje asynchroniczne odpowiedniki. Jest więc <code>ToListAsync()</code>, <code>SingleAsync(Func&lt;TSource, bool&gt;)</code>, <code>SaveChangesAsync()</code> etc. i to nich powinno się używać.</p>
 <h2 id="przykładowa-apka.">6. Przykładowa apka.</h2>
-<p>Teraz pokażemy apkę stworzoną w ASP .NET Core z Identity i EF Core w dosłownie pół godziny. Źródło dostępne tutaj: .</p>
+<p>Teraz pokażemy apkę stworzoną w ASP .NET Core z Identity i EF Core w dosłownie pół godziny.</p>
+<p>Aby postawić apkę lokalnie należy sklonować repozytorium z <a href="http://github.com/V0ldek/Ducker">http://github.com/V0ldek/Ducker</a> i skonfigurować swoje środowisko.</p>
+<p>Instalacja na Windowsie:</p>
+<ol>
+<li>Pobieramy i instalujemy <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio Community</a>.</li>
+<li>Instalujemy rozszerzenie <a href="https://www.jetbrains.com/resharper">ReSharper</a> (wymaga licencji).</li>
+<li>Instalujemy bazę danych <a href="https://www.postgresql.org/download/">PostgreSQL</a>
+<ul>
+<li>port 5432</li>
+<li>konto superusera <code>postgres</code>, hasło <code>postgres</code></li>
+</ul>
+</li>
+<li>Uruchamiamy narzędzie <code>psql.exe</code> z PowerShella (najpierw należy je dodać do zmiennej środowiskowej <code>PATH</code>, wchodząc w Zaawansowane ustawienia systemu/Zmienne środowiskowe, tool znajduje się w katalogu instalacji PostgreSQL/bin) pisząc <code>psql -U postgres</code>.</li>
+<li>Po podaniu hasła wklepujemy zaklęcie <code>CREATE DATABASE ducker_db;</code>.</li>
+<li>Uruchamiamy solucję w VisualStudio (plik Ducker.sln w repo).</li>
+<li>Teraz musimy skonfigurować bazę danych. Uruchamiamy Package Manager Console (pasek na dole lub Tools/NuGet Package Manager/Package Manager Console) i piszemy zaklęcie <code>Update-Database</code>, które zastosuje wszystkie migracje do naszej lokalnej bazy danych.</li>
+<li>O ile wszystko się udało powinniśmy teraz móc odpalić aplikację wybierając IIS Express i klikając w przycisk z zielonym trójkącikiem na górze.</li>
+</ol>
+<p>Na Linuxie:</p>
+<ol>
+<li><a href="https://www.ostechnix.com/how-to-install-microsoft-net-core-sdk-on-linux/">https://www.ostechnix.com/how-to-install-microsoft-net-core-sdk-on-linux/</a></li>
+<li>Wybieramy swój edytor, jedyne sensowne opcje to VisualStudio Code i Rider od JetBrainsów.</li>
+<li>Instalujemy bazę PostgreSQL tak jak na Windowsie, uruchamiamy <code>psql</code> w terminalu i tworzymy bazę danych <code>ducker_db</code>.</li>
+<li>Stosujemy migracje używając .NET Core CLI i zaklęcia <code>dotnet ef database update</code>. W przypadku kłopotów konsultujemy się z <a href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet">MSDN-em</a></li>
+<li>Żeby móc hostować naszą aplikację musimy użyć jakiegoś silnika. Da się to zrobić Dockerem, Nginxem albo Apachem, najlepiej poczytać na <a href="https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.2">MSDN-ie</a>.</li>
+</ol>
+<p>Przetestujmy apkę tworząc nowe konto użytkownika i tworząc nową kaczkę.</p>
+<p>Rola Administrator jest skonfigurowana w metodzie <code>Startup.CreateRoles</code>. W linijce <code>95</code> można zmienić nazwę użytkownika admina, np. na swoją. Administrator widzi kaczki wszystkich użytkowników,  zwykły użytkownik tylko swoje.</p>
+<p>Jako ćwiczenie: dodaj funkcjonalność edytowania istniejącej kaczki. Obok każdego wpisu w tabelce na stronie głównej powinien pojawić się przycisk edycji, przekierowujący do formularza edycji (prawdopodobnie pod <code>/Duck/Edit?Name=...</code>). Wysłanie tego formularza powinno poskutkować zapisaniem zmian w bazie danych.</p>
 <h2 id="koniec">Koniec</h2>
 <p>Dziękuję za uwagę.</p>
 <p>Copyright © Mateusz Gienieczko 2019</p>

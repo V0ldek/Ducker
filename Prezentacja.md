@@ -459,7 +459,7 @@ public void SqueakADuck(BetterDuck duck)
 
 Duck duck = new Duck();
 BetterDuck betterDuck = new BetterDuck();
-Duck betterDuckDisguisedAsANormalDuck = new Duck();
+Duck betterDuckDisguisedAsANormalDuck = new BetterDuck();
 
 SqueakADuck(duck);
 SqueakADuck(betterDuck);
@@ -484,7 +484,7 @@ public class Duck
     }
 }
 
-public class BetterDuck
+public class BetterDuck : Duck
 {
     public void Squeak()
     {
@@ -494,7 +494,7 @@ public class BetterDuck
 
 Duck duck = new Duck();
 BetterDuck betterDuck = new BetterDuck();
-Duck betterDuckDisguisedAsANormalDuck = new Duck();
+Duck betterDuckDisguisedAsANormalDuck = new BetterDuck();
 
 duck.Squeak();
 betterDuck.Squeak();
@@ -1295,7 +1295,7 @@ Console.WriteLine(verbatimStr);
 Można te typy łączyć ze sobą
 ```csharp
 var duck = new Duck("Jacuś");
-var mix = @$"{duck.Name}\n";
+var mix = $@"{duck.Name}\n";
 Console.WriteLine(mix);
 ```
 ```
@@ -2834,7 +2834,35 @@ Wszystkie operacje LINQ to Entities, które powodują wykonanie query, mają swo
 
 ## 6. Przykładowa apka.
 
-Teraz pokażemy apkę stworzoną w ASP .NET Core z Identity i EF Core w dosłownie pół godziny. Źródło dostępne tutaj: .
+Teraz pokażemy apkę stworzoną w ASP .NET Core z Identity i EF Core w dosłownie pół godziny.
+
+Aby postawić apkę lokalnie należy sklonować repozytorium z http://github.com/V0ldek/Ducker i skonfigurować swoje środowisko.
+
+Instalacja na Windowsie:
+1. Pobieramy i instalujemy [Visual Studio Community](https://visualstudio.microsoft.com/downloads/).
+2. Instalujemy rozszerzenie [ReSharper](https://www.jetbrains.com/resharper) (wymaga licencji).
+3. Instalujemy bazę danych [PostgreSQL](https://www.postgresql.org/download/)
+    - port 5432
+    - konto superusera `postgres`, hasło `postgres`
+4. Uruchamiamy narzędzie `psql.exe` z PowerShella (najpierw należy je dodać do zmiennej środowiskowej `PATH`, wchodząc w Zaawansowane ustawienia systemu/Zmienne środowiskowe, tool znajduje się w katalogu instalacji PostgreSQL/bin) pisząc `psql -U postgres`.
+5. Po podaniu hasła wklepujemy zaklęcie `CREATE DATABASE ducker_db;`.
+6. Uruchamiamy solucję w VisualStudio (plik Ducker.sln w repo).
+7. Teraz musimy skonfigurować bazę danych. Uruchamiamy Package Manager Console (pasek na dole lub Tools/NuGet Package Manager/Package Manager Console) i piszemy zaklęcie `Update-Database`, które zastosuje wszystkie migracje do naszej lokalnej bazy danych.
+8. O ile wszystko się udało powinniśmy teraz móc odpalić aplikację wybierając IIS Express i klikając w przycisk z zielonym trójkącikiem na górze.
+
+
+Na Linuxie:
+1. https://www.ostechnix.com/how-to-install-microsoft-net-core-sdk-on-linux/
+2. Wybieramy swój edytor, jedyne sensowne opcje to VisualStudio Code i Rider od JetBrainsów.
+3. Instalujemy bazę PostgreSQL tak jak na Windowsie, uruchamiamy `psql` w terminalu i tworzymy bazę danych `ducker_db`.
+4. Stosujemy migracje używając .NET Core CLI i zaklęcia `dotnet ef database update`. W przypadku kłopotów konsultujemy się z [MSDN-em](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
+5. Żeby móc hostować naszą aplikację musimy użyć jakiegoś silnika. Da się to zrobić Dockerem, Nginxem albo Apachem, najlepiej poczytać na [MSDN-ie](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.2). 
+
+Przetestujmy apkę tworząc nowe konto użytkownika i tworząc nową kaczkę.
+
+Rola Administrator jest skonfigurowana w metodzie `Startup.CreateRoles`. W linijce `95` można zmienić nazwę użytkownika admina, np. na swoją. Administrator widzi kaczki wszystkich użytkowników,  zwykły użytkownik tylko swoje.
+
+Jako ćwiczenie: dodaj funkcjonalność edytowania istniejącej kaczki. Obok każdego wpisu w tabelce na stronie głównej powinien pojawić się przycisk edycji, przekierowujący do formularza edycji (prawdopodobnie pod `/Duck/Edit?Name=...`). Wysłanie tego formularza powinno poskutkować zapisaniem zmian w bazie danych.
 
 ## Koniec
 
