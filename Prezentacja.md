@@ -1,5 +1,5 @@
 ﻿# Pobieżne wprowadzenie do podstaw części C#, Tom I, Część I
-Strona 1/60
+<small>v1.0.1 Copyright (c) Mateusz Gienieczko 2019</small>
 
 ## 0. Plan.
 0. Plan.
@@ -48,7 +48,7 @@ C# jest zorientowany na bezpieczeństwo i wygodę developera. Tak długo, jak po
 Ale nawet wtedy pozwala nam porzucić granice zdrowego rozsądku i udostępnia typowanie dynamiczne (`dynamic`) oraz magiczny keyword `unsafe`, który wyłącza GC, ABS i wspomaganie kierownicy.
 W tej prezentacji jednak nie będziemy poza rzeczone granice wychodzić.
 
-### Klasyka gatunku
+### 2.1 Klasyka gatunku
 
 ```csharp
 namespace SeeITSharp 
@@ -69,7 +69,7 @@ namespace SeeITSharp
 ```csharp
 public static void Main(string[] args)
 ```
-### Assembly i namespace'y
+### 2.2 Assembly i namespace'y
 
 Pojedyncza jednostka kompilacji w świecie .NET-u to assembly. Skompilowane assembly ma rozszerzenie `.dll` w przypadku bibliotek, a `.exe` w przypadku wykonywalnych aplikacji (czyli takich z `Mainem`).
 W obrębie danego assembly możemy mieć wiele namespace'ów. Można o tym myśleć jak o strukturze katalogów - katalog nadrzędny to nazwa assembly, każdy kolejny zagnieżdżony namespace to podkatalog. Kolejne namespace'y oddzielamy kropką.
@@ -94,8 +94,11 @@ namespace SeeITSharp
     }
 }
 ```
+```
+> Hello World!
+```
 
-### Podstawowe typy
+### 2.3 Podstawowe typy
 
 Podstawowe funkcjonalności języka są podobne jak w Javie.  Mamy garść typów wbudowanych:
 - `bool` - `true`, `false`;
@@ -130,7 +133,7 @@ for (int i = 0; i < tab.Length; ++i)
 Console.WriteLine();
 ```
 ```
-> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 ```
 
 Wielowymiarowe tablice występują w dwóch smakach: multidimensional arrays oraz jagged (z ang. poszarpany) arrays.
@@ -155,7 +158,7 @@ Console.WriteLine(multi[1, 1]);
 ```
 Jagged to tablica tablic, multidimensional to pojedyncza tablica z magią w środku. Multidimensional powinno się używać tylko wtedy, kiedy rzeczywiście operujemy na prostokątach (vel prostopadłościanach w N wymiarach). Jagged  zawsze wtedy, kiedy możemy mieć np. różne liczby kolumn dla każdego wiersza.
 
-### Keyword `var`
+### 2.4 Keyword `var`
 
 C# jest statycznie typowany, ale niekoniecznie explicitly typowane. Posiada local variable type inference, tzn. kompilator jest w stanie wywnioskować typ deklaracji na podstawie przypisania.
 ```csharp
@@ -170,7 +173,7 @@ var line = Console.ReadLine(); // Variable line is a string.
 ```
 Istnieją różne konwencje używania `var`. Bodajże najpopularniejsza głosi "używaj `var` zawsze wtedy, kiedy typ po prawej jest widoczny na pierwszy rzut oka." Ja sam posługuję się konwencją "używaj `var` zawsze". Jednakże w jednym wszystkie konwencje są zgodne - wbudowane typy to zawsze `var`. Wszelkie `inty`, `stringi` itp. zamieniamy na `var`.
 
-### Pętla `foreach`
+### 2.5 Pętla `foreach`
 
 Do iterowania się po tablicach, a w przyszłości po `IEnumerable`, w większości przypadków używa się pętli `foreach`.
 
@@ -189,8 +192,11 @@ foreach(var i in tab)
 
 Console.WriteLine();
 ```
+```
+> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+```
 
-### Access specifiers
+### 2.6 Access specifiers
 Zajmijmy się w końcu klasami. W C# mamy cztery/sześć access specifiery, zależy pod jakim kątem spojrzeć.
 - `public` - widoczne wszędzie (jak w Javie)
 - `internal` - widoczne w obrębie tego assembly (podobne do package-private w Javie)
@@ -203,7 +209,7 @@ Dodatkowo istnieją dwie wariacje:
 
 Nigdy nie zdarzyło mi się użyć tych dwóch ostatnich.
 
-### Enums
+### 2.7 Enums
 
 Enumy w C# nie różnią się niczym specjalnym od tych w innych językach.
 ```csharp
@@ -236,7 +242,7 @@ Console.WriteLine((int)mix);
 > 19
 ```
 
-### Fields
+### 2.8 Fields
 
 Pola wewnątrz klasy deklaruje się jak w Javie.
 
@@ -263,7 +269,7 @@ Niestatyczne pola powinny być prywatne. Jak nie są prywatne, to pewnie coś po
 
 Popularną konwencją nazewnictwa (i zalecaną przez MSDN) jest pisanie prywatnych pól _camelCasem (zaczynanym od podłogi), aczkolwiek spotyka się też zwykły camelCase. Stałe piszemy CamelCasem.
 
-### Properties
+### 2.9 Properties
 Skoro pola są prywatne, to potrzebujemy getterów i setterów. W Javie piszemy własne `getValue()` `setValue(T)`, C# na szczęście jest lepszy, bo ma properties.
 
 ```csharp
@@ -321,7 +327,7 @@ public int Number { get; }
 public int AverageValue => Sum / Number;
 ```
 
-### Metody
+### 2.10 Metody
 
 Jakie metody są, każdy widzi. Deklarujemy typ zwracany i przyjmowane argumenty. Do instancji, na której wywołano metodę, możemy się odwołać za pomocą `this`.
 
@@ -331,7 +337,7 @@ public class Duck
     public void Squeak(string message)
     {
         Console.WriteLine("Squeak! " + message);
-        this.TimesSqueaked++;  // This this is actually redundant.
+        this.TimesSqueaked++;  // This `this` is actually redundant.
     }
 }
 ```
@@ -381,7 +387,7 @@ duck.Squeak();
 > Squeak!
 ```
 
-### Interfejsy
+### 2.11 Interfejsy
 
 Interfejsy mogą zawierać tylko i wyłącznie deklaracje publicznych metod (jest to nieprawda w C# 8). Gettery i settery to metody:
 
@@ -395,7 +401,7 @@ public interface IDuck
 
 Klasa może implementować dowolnie wiele interfejsów. Aby implementować interfejs należy dostarczyć publiczne metody o podanych sygnaturach.
 
-### Klasy abstrakcyjne
+### 2.12 Klasy abstrakcyjne
 
 Klasy abstrakcyjne służą do implementacji części interfejsu i pozostawienia pewnych szczegółów dla implementujących klasy dziedziczące. Mogą posiadać metody bez implementacji. Klasa abstrakcyjna nie może zostać zainstancjonowana, ale może mieć konstruktor.
 
@@ -419,7 +425,7 @@ public abstract class DuckBase : IDuck
 }
 ```
 
-### Dziedziczenie
+### 2.13 Dziedziczenie
 
 Klasy mogą dziedziczyć po maksymalnie jednej innej klasie i implementować dowolnie wiele interfejsów. Klasy dziedziczą wszystkie metody, pola etc., nie dziedziczą jedynie ctorów (i dtorów).
 Każda klasa dziedziczy domyślnie po `System.Object`.
@@ -443,7 +449,7 @@ duck.Squeak();
 > Squeak!
 ```
 
-### Przeciążanie
+### 2.14 Przeciążanie
 
 Metody można przeciążać, t.j. deklarować dwie metody o tej samej nazwie, ale z innymi parametrami i/lub z innym typem zwracanym. Kompilator wybierze najlepiej pasującą metodę at compile time.
 ```csharp
@@ -471,14 +477,14 @@ SqueakADuck(betterDuckDisguisedAsANormalDuck);
 > Squeak!
 ```
 
-### Przeładowywanie (overriding)
+### 2.15 Przeładowywanie (overriding)
 
 Metody można przeładowywać (override'ować), ale tylko jeśli w klasie bazowej były zadeklarowane jako `virtual`. Trzeba to zaznaczyć za pomocą `override`. Oczywiście mamy polimorfizm.
 
 ```csharp
 public class Duck
 {
-    public void Squeak()
+    public virtual void Squeak()
     {
         Console.WriteLine("Squeak!");
     }
@@ -486,7 +492,7 @@ public class Duck
 
 public class BetterDuck : Duck
 {
-    public void Squeak()
+    public override void Squeak()
     {
         Console.WriteLine("Better squeak!");
     }
@@ -507,9 +513,9 @@ betterDuckDisguisedAsANormalDuck.Squeak();
 ```
 Może się zdarzyć, że chcemy wywołać implementację z klasy bazowej. Służy do tego keyword `base`.
 ```csharp
-public class BetterDuck
+public class BetterDuck : Duck
 {
-    public void Squeak()
+    public override void Squeak()
     {
         Console.WriteLine("Better squeak!");
         base.Squeak();
@@ -524,7 +530,7 @@ betterDuck.Squeak();
 > Squeak!
 ```
 
-### Hiding
+### 2.16 Hiding
 
 Metodę z klasy wyżej można ukryć, ale rezygnujemy wtedy z polimorfizmu.
 
@@ -556,7 +562,7 @@ duck.Squeak();
 > Squeak!
 ```
 
-### Konstruktory
+### 2.17 Konstruktory
 
 W skrócie ctor, służy do tworzenia obiektów klasy za pomocą `new`.
 
@@ -614,7 +620,7 @@ public class Duck
 var duck = new Duck { Name = "Jacuś", Color = Color.Yellow };
 ```
 
-### Sealed
+### 2.18 Sealed
 Klasy możemy zamknąć na dziedziczenie poprzez keyword `sealed`. Można też nim zablokować dalsze przeładowywanie metody wirtualnej.
 ```csharp
 public class Duck
@@ -641,7 +647,7 @@ public class BestDuck : BetterDuck
 }
 ```
 
-### Partial
+### 2.19 Partial
 
 Klasy, interfejsy i structy można zadeklarować jako `partial` i rozbić ich implementację na kilka plików.
 ```csharp
@@ -664,7 +670,7 @@ public partial class Duck
 Taka deklaracja zostaje złączona w całość w czasie kompilacji. Wszystkie access specifiery muszą być zgodne, `sealed` przechodzi na cały typ, dziedziczenie po klasie przechodzi na cały typ, implementowana jest suma wszystkich interfejsów.
 Metody też mogą być `partial`, wtedy jeden plik podaje jej sygnaturę i _opcjonalnie_ inny plik ją implementuje. Jeśli implementacja nie istnieje, metoda jest ignorowana przez kompilator.
 
-### Reference types vs Value types
+### 2.20 Reference types vs Value types
 W C# istnieje też keyword `struct` służący do tworzenia nowych typów. W przeciwieństwie do C++ różnica pomiędzy `class` a `struct` istnieje i jest znaczna. Klasy reprezentują reference types, structy value types.
 
 - **Reference type** - instancja tego typu zawiera referencję (wskaźnik) na blok pamięci zawierający dane obiektu; przekazanie takiej instancji np. jako parametr funkcji i zmodyfikowanie w niej czegoś poskutkuje zmianą oryginalnego obiektu
@@ -763,7 +769,7 @@ Ciekawostka przyrodnicza - wszystkie keywordy `int`, `object`, `string` itp. są
 
 Domyślną wartością reference type jest `null`,  domyślną wartością value type są wyzerowane bity. Value types nie mogą mieć bezparametrowych ctorów. Value types nie mogą po niczym dziedziczyć (ani nie można dziedziczyć po nich), ale mogą implementować interfejsy.
 
-### ~~Wolność~~, równość, ~~braterstwo~~
+### 2.21 ~~Wolność~~, równość, ~~braterstwo~~
 
 Istnieje metod `static bool Object.ReferenceEquals(object, object)`, która sprawdza, czy przekazane obiekty są tym samym. Dla value types w oczywisty sposó zawsze zwraca `false`.
 Istnieje metoda `bool Object.Equals(object)`, którą dziedziczą wszystkie typy. Domyślnie porównanie za pomocą `Equals` jest równoważne `ReferenceEquals` dla reference types, a dla value types porównuje każdy bit. Da się ją przeciążyć.
@@ -820,7 +826,7 @@ public struct DuckData
 }
 ```
 
-### Rzutowanie
+### 2.22 Rzutowanie
 - Casty, przy których nie ma ryzyka utraty informacji są implicit.
 ```csharp
 int a = 42;
@@ -881,7 +887,7 @@ if(betterDuck != null)
 > Better squeak!
 ```
 
-### Boxing
+### 2.23 Boxing
 Przy takim przypisaniu:
 ```csharp
 int i = 42;
@@ -893,7 +899,7 @@ int j = (int)obj;
 ```
 Boxing zżera czas, więc należy go unikać.
 
-### Parametry `ref` i `out`
+### 2.24 Parametry `ref` i `out`
 
 C# pozwala na mało eleganckie przekazywanie zmiennych przez referencję. Można więc przekazać referencję na referencję lub referencję na value type.
 
@@ -935,7 +941,7 @@ Console.WriteLine(j);
 Różnica między `ref` a `out` - `ref` musi być przypisany przed przekazaniem, `out` nie. Metoda musi przypisać coś do `out`, do `ref` nie.
 
 
-### Parse i TryParse
+### 2.25 Parse i TryParse
 
 Do konwersji stringów na liczby używa się funkcji `Parse` lub `TryParse`.  Ta pierwsza rzuca wyjątek przy niepowodzeniu, ta druga zwraca `boola` i wypełnia `out` parameter jeśli się udało.
 ```csharp
@@ -959,7 +965,7 @@ Console.WriteLine(success);
 ```
 > 42
 ```
-### Convert
+### 2.26 Convert
 
 Zaawansowane konwersje pomiędzy bazowymi typami powinny używać `Convert`.
 
@@ -973,7 +979,7 @@ Console.WriteLine(i);
 > 2
 ```
 
-### To be, or not to be?
+### 2.27 To be, or not to be?
 
 C# ma rozbudowany mechanizm refleksji, który pozwala np. dostać metadane o typie danego obiektu at runtime.
 ```csharp
@@ -987,7 +993,7 @@ Type t = typeof(Duck);
 Można też np. złapać wszystkie metody dostępne dla danego typu, wszystkie interfejsy, klasy bazowe czy wyzerować wszystkie prywatne pola. Use responsibly (which means don't use at all unless you need it).
 Jest też wolna, like, bardzo.
 
-### Generics
+### 2.28 Generics
 
 Suck it, Java.
 Generyczne mogą być zarówno typy jak i metody. Przykładem generycznej klasy jest np. `List<T>`, który może przechowywać dowolne obiekty. W przeciwieństwie do pewnego języka na J, informacja o typie zostaje zachowana at compile time.
@@ -1056,7 +1062,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, TRest>
     /* ... */
 }
 ```
-### Generic constraints
+### 2.29 Generic constraints
 
 Umożliwianie przekazania dowolnego typu do generycznej klasy lub metody z reguły jest mało przydatne. Można jednak nałożyć ograniczenia na typ generyczny - kazać mu implementować jakieś interfejsy lub dziedziczyć po konkretnej klasie.
 ```csharp
@@ -1123,7 +1129,7 @@ public static void LaughsInCSharp<TeeHeeHee>()
 
 Dodatkowo, jeśli się nie mylę, to stworzenie generyka od typu `int` jest niemożliwe w Javie i trzeba robić boxing. Oczywiście C# nie jest tak skrajnie upośledzony i parametrem generycznym może być dowolny typ. Nie jest jednak tak fajny jak C++ i nie pozwala, żeby to była np. stała.
 
-### `Nullable<T>`
+### 2.30 `Nullable<T>`
 
 Value types nie mogą być nullem, ale czasem może być to potrzebne. Z tego powodu istnieje wrapper class `Nullable<T>`, który można też wywołać lukrem syntaktycznym `T?`.
 
@@ -1148,7 +1154,7 @@ i = null;
 
 `Nullable<T>` boxuje!
 
-### Kolekcje
+### 2.31 Kolekcje
 
 .NET udostępnia generyczne kolekcje i interfejsy w `System.Collections.Generic`.
 
@@ -1184,10 +1190,11 @@ Console.WriteLine();
 > 2137
 ```
 
-### Ko- i kontrawariancja
+### 2.32 Ko- i kontrawariancja
 
-Kowariancja jest wtedy, kiedy nic nie wkładamy, ale wyciągamy.
-Kontrawariancja jest wtedy, kiedy wkładamy, ale nie wyciągamy.
+Intuicja:
+- Kowariancja jest wtedy, kiedy nic nie wkładamy, ale wyciągamy.
+- Kontrawariancja jest wtedy, kiedy wkładamy, ale nie wyciągamy.
 
 ```csharp
 IEnumerable<Duck> = new List<BetterDuck>();
@@ -1213,7 +1220,7 @@ IDuckGenerator<Duck> duckGenerator = new DuckGenerator<BetterDuck>();
 IDuckSqueaker<BetterDuck> duckSqueaker = new DuckSqueaker<Duck>();
 ```
 
-### Stringi
+### 2.33 Stringi
 
 Wspomnieliśmy już, że porównywanie zmiennych typu `string` za pomocą `==` jest intuicyjne. Należy pamiętać także o bardzo ważnej rzeczy - stringi są immutable. To znaczy, że wywołanie:
 ```
@@ -1302,7 +1309,7 @@ Console.WriteLine(mix);
 > Jacuś\n
 ```
 
-### Więcej o verbatim
+### 2.34 Więcej o verbatim
 
 Jak już przy tym jesteśmy, znaczka `@` można użyć też do escape'owania keywordów.
 
@@ -1311,7 +1318,7 @@ Jak już przy tym jesteśmy, znaczka `@` można użyć też do escape'owania key
 object @object = new object(); // This is correct.
 ```
 
-### Statyczne klasy
+### 2.35 Statyczne klasy
 
 Czasami metody albo stałe nie należą do żadnej konkretnej instancji, ale są ogólną własnością klasy. Deklarujemy je wtedy jako `static`. Często jednak zdarza się, że mamy wiele pomocniczych metod, które nijak nie są związane z konkretnym obiektem (np. klasa `Math`). Wtedy taką klasę można zadeklarować jako statyczną. Nie może mieć ona ctora  i nie da się stworzyć jej instancji. Wszystkie jej składowe też muszą być statyczne.
 
@@ -1325,7 +1332,7 @@ public static class Math
 }
 ```
 
-### Extension methods
+### 2.36 Extension methods
 
 Bardzo ciekawym mechanizmem jak na statycznie typowany język są extension methods. Jest to co prawda jedynie lukier syntaktyczny, ale pozwala nam wywoływać metody na obiektach danego typu jakby były ich memberami.
 
@@ -1352,7 +1359,7 @@ duck.SqueakNTimes(3);
 ```
 Nie można jednak w ten sposób obejść access specifierów - widzimy tylko publiczne rzeczy (ewentualnie `internal`).
 
-### Operatory
+### 2.37 Operatory
 
 W C# mamy standardowe operatory jak w C lub C++. Przydatną informacją jest to, że operatory `||` oraz `&&` są leniwe (defacto są zaimplementowane za pomocą `|` i `&`). W przypadku `bool?` zachowanie tych operatorów jest takie jak w SQL-u (stety/niestety).
 
@@ -1374,7 +1381,7 @@ jest równoważne
 a != null ? a.Property : null;
 ```
 
-### Przeciążanie operatorów
+### 2.38 Przeciążanie operatorów
 
 Tak, można! Nie można tylko przypisania i `||`/`&&` (ale można `|`/`&`). Można nawet przeciążyć `==`, choć jest to niezalecane. Przypisania być przeciążane parami.
 
@@ -1401,7 +1408,7 @@ Console.WriteLine(duck == otherDuck);
 > True
 ```
 
-### Indekser
+### 2.39 Indekser
 
 Nasz typ może definiować swój indekser, tj. zachowanie dla operatora `[]`.
 
@@ -1423,7 +1430,7 @@ public class MyTableWrapper<T>
 }
 ```
 
-### Custom cast
+### 2.40 Custom cast
 
 Można zdefiniować swoje własne jawne i niejawne castowanie za pomocą `implicit` i `explicit`.
 
@@ -1450,7 +1457,7 @@ A bAsA = (A)b;
 B aAsB = a;
 ```
 
-### Tuples (ValueTuple)
+### 2.41 Tuples (ValueTuple)
 
 Wspomnieliśmy wcześniej o Tuple'ach, jednak w C# 7 używa się ValueTuples. Pozwalają one na nazwanie pól:
 ```csharp
@@ -1474,7 +1481,7 @@ Console.WriteLine(y);
 ```
 ValueTuple to struct.
 
-### Wyjątki
+### 2.42 Wyjątki
 
 Wyjątki rzuca się `throw`, każdy wyjątek musi dziedziczyć po `System.Exception`. Wyjątki łapie się konstrukcją `try`/`catch` i można je zrethrowować. 
 ```csharp
@@ -1513,7 +1520,7 @@ catch(InvalidOperationException) // Without declaring a variable.
 ```
 C# ma też konstrukcję `finally`. Kod w bloku `finally` wywołuje się zawsze, nawet w przypadku wyjątku. Może wystąpić bez `catcha`. Ta konstrukcja mogłaby się przydawać np. do wywoływania `Dispose`, gdyby nie `using`.
 
-### Garbage collector
+### 2.43 Garbage collector
 
 Nie będziemy wchodzić w szczegóły GC. Najważniejsze informacje to:
 
@@ -1523,7 +1530,7 @@ Nie będziemy wchodzić w szczegóły GC. Najważniejsze informacje to:
 
 W związku z tym, że obiekty mogą trochę poczekać zanim zostaną zniszczone, nawet jak już są niepotrzebne, powstał Dispose pattern.
 
-#### Dispose
+### 2.44 Dispose
 
 Jeśli klasa trzyma jakiś managed resource, który jest "ciężki", np. file handle, połączenie z bazą danych itp., powinien implementować `IDisposable`. Interfejs ten zawiera jedną metodę `void Dispose()`, która ma zwolnić zasoby. Kanoniczna implementacja dispose pattern bez finalize wygląda tak:
 
@@ -1590,7 +1597,7 @@ public static void DoStuffWithRepo()
 }
 ```
 
-#### Finalize
+### 2.45 Finalize
 
 Finalize/destruktor służy do zwalniania _unmanaged_ resources. Takie zasoby też powinny być zwalniane przez `Dispose`, ale finalizer służy jako safeguard, gdyby wywołanie `Dispose` zawiodło albo jakiś JavaScript-Ninja o nim zapomniał. Zawsze implementujemy `Dispose` pattern, a potem dodajemy:
 
@@ -1604,7 +1611,7 @@ Finalize/destruktor służy do zwalniania _unmanaged_ resources. Takie zasoby te
 Po pierwsze - jeśli kiedykolwiek trzeba pracować z unmanaged resources to i tak będzie trzeba przeczytać MSDN-a jeszcze raz.
 Po drugie - Finalize should be a last resort, specialize `SafeHandle` instead.
 
-### Atrybuty
+### 2.46 Atrybuty
 
 Atrybuty zawierają metadane. Same z siebie nie za wiele robią, ale można się do nich dostać przez refleksję i wyłuskać dane (będziemy ich bardzo używać przy ASP i EF). Każdy atrybut ma nazwę kończącą się na `Attribute` i dziedziczy po `Attribute`.
 Przykładowo atrybut `ObsoleteAttribute`, używany przez kompilator do nakrzyczenia na użytkownika danej metody:
@@ -1639,7 +1646,7 @@ public class MyAttribute : Attribute
 }
 ```
 
-### `nameof`
+### 2.47 `nameof`
 
 Taki mały feature, `nameof` zostaje statycznie zamienione na nazwę zmiennej/pola/metody etc.
 
@@ -1651,7 +1658,7 @@ Console.WriteLine($"{nameof(duck.Squeak)}!");
 > Squeak!
 ```
 
-### Delegates
+### 2.48 Delegates
 
 Delegaty to type-safe function references. Najpierw trzeba zadeklarować sam typ:
 ```csharp
@@ -1732,7 +1739,7 @@ Func<int, int, int> f = binaryOperator;
 ```
 jest nielegalne. Z tego też powodu nie można używać `var` przy deklaracjach obiektów delegatów.
 
-### Lambdy
+### 2.49 Lambdy
 
 Bardzo często do delegatów przypisujemy krótkie wyrażenia i nie ma sensu tworzyć dla nich dedykowanych metod. I tu wchodzą lambdy, całe na biało.
 
@@ -1780,8 +1787,41 @@ No i lambdy są kompatybilne z dowolnym delegatem o odpowiedniej sygnaturze.
 BinaryOperator bin = (a, b) => a + b;
 Func<int, int, int> fun = (a, b) => a + b;
 ```
+### 2.50 `Lazy<T>`
 
-### Lokalne metody
+Wspomnieliśmy, że konwencjonalnie properties powinny nie być resource-intensive. Czasami jednak chcemy mieć propertę, której inicjalizacja zajmuje dużo czasu, bo np. reprezentuje bardzo duży obiekt. W takim wypadku możemy użyć klasy `Lazy<T>`. Przyjmuje ona inicjalizator i wykonuje go przy pierwszym odwołaniu do property `Value`. Każde kolejne odwołanie spowoduje zwrócenie raz utworzonego obiektu. Implementuje to schemat lazy initialization - obiekt jest tworzony dopiero wtedy, kiedy jest potrzebny, ale tylko raz.
+```csharp
+public class GiantDuck
+{
+    public string Name { get; }
+
+    /* A lot of members */
+}
+
+public class GiantDuckContainer
+{
+    public Lazy<GiantDuck> Duck { get; }
+
+    public GiantDuckContainer
+    {
+        Duck = new Lazy<GiantDuck>(() => new GiantDuck("Jacuś"));
+    }
+}
+```
+Uważny słuchacz powinien się teraz spytać, jak będzie to działać, jeśli kilka wątków odwoła się do `Value` jednocześnie. Domyślnie działa to sensownie - jest thread safe. Można to explicitly wyłączyć używając innego konstruktora `Lazy<T>`, który przyjmuje `bool isThreadSafe`. Powinno się tego używać tylko wtedy, kiedy wydajność jest szczególnie ważna, przy zachowaniu szczególnej ostrożności i włączonym kierunkowskazie.
+Jeśli chcemy tworzyć obiekt za pomocą domyślnego konstruktora, to możemy pominąć inicjalizującą lambdę, tzn.
+```csharp
+new Lazy<T>();      // Thread safe.
+new Lazy<T>(false); // Non-thread safe.
+```
+są równoważne
+```csharp
+new Lazy<T>(() => new T());         // Thread safe.
+new Lazy<T>(() => new T(), false);  // Thread safe.
+```
+Dodatkowo, jeśli _niestandardowa_ inicjalizacja wyrzuci wyjątek, to każde kolejne odwołanie do tego samego `Value` wyrzuci ten sam wyjątek.
+
+### 2.51 Lokalne metody
 
 Czasami chcemy mieć metodę, którą wywołamy kilkukrotnie w czasie wywoływania naszej logiki. Nie chcemy powtarzać kodu, ale nie chcemy też tworzyć pomocniczej metody używanej tylko w jednym miejscu i nie mającej wartości poza tym konkretnym miejscem. Można by utworzyć delegata do tej metody, ale jest to niepotrzebne alokowanie pamięci i wywołanie metody potrwa trochę dłużej. Lepiej użyć lokalnej metody:
 ```csharp
@@ -1806,7 +1846,7 @@ Console.WriteLine(CalculateStuff((17, 25), (11, 33), (35, 21)));
 > 42
 ```
 
-### To już jest (prawie) koniec
+### 2.52 To już jest (prawie) koniec
 
 Zostało nam programowanie asynchroniczne i LINQ, ale o tym w następnych działach.
 
@@ -1822,7 +1862,7 @@ SOLID principles:
 
 No to już uczą. Szczególną uwagę poświęcimy literce **D**.
 
-### Inversion of Control
+### 3.1 Inversion of Control
 
 Inversion of Control jest sposobem na spełnienie SOLID-owego **D**. Załóżmy, że nasz kod chce wyciągnąć coś z bazy danych. Ma do tego repozytorium:
 ```csharp
@@ -1887,7 +1927,7 @@ Teraz to wywołujący `Maina` ma kontrolę nad tym, jakie repozytorium dostanie 
 
 Don't let your code get the better of you. Take control.
 
-### IoC container / Service locator
+### 3.2 IoC Container / Service Locator
 
 Powyższy pattern jest bardzo powszechny. Praktycznie każdy element aplikacji ma jakieś zależności i te zależności powinny być decoupled od kodu, który ich używa, połączony jedynie ładnym interfejsem. Do osiągnięcia tego używa się kontenerów IoC. My zajmiemy się Microsoftowym `ServiceProviderem` dostępnym out-of-the-box w ASP .NET Corze.
 
@@ -1908,7 +1948,7 @@ Nie przejmując się tym, co znaczy `Scoped`, we're done. Teraz automatycznie je
 
 Każda zależność w aplikacji powinna być skonfigurowana w podobny sposób. Później jeszcze do tego wrócimy i powiemy co to `Scoped` i co robią inne modyfikatory.
 
-### Testowanie (XUnit)
+### 3.3 Testowanie (XUnit)
 
 Większość rzeczy związanych z czystym kodem i elegancką architekturą ma dwa cele - po pierwsze, wprowadzenie zmiany powinno wymagać nakładu pracy mniej więcej liniowo proporcjonalnego do rozmiaru tej zmiany. Po drugie, kod musi być testowalny. Nie będziemy tutaj poruszać zagadnień Test Driven Development, ale postaramy się przynajamniej nie robić Yolo Driven Development.
 
@@ -1921,6 +1961,8 @@ Unit testy powinny być:
 - Niezależne - wykonanie jednego testu nie może w żaden sposób wpłynąć na wykonanie innych
 - Zwięzłe - jeśli test jest długi, prawdopodobnie metoda jest zbyt skomplikowana
 - Odizolowane - jeden unit test powinien testować jeden unit, wszystkie zależności powinny być zmockowane
+
+#### Arrange, Act, Assert
 
 Standardowym workflowem do tworzenia unit testów jest AAA - Arrange, Act, Assert. Zobaczmy przykładowy test klasy `Calculator`.
 
@@ -2032,13 +2074,13 @@ Zakładam, że wiemy, jak działa internet, protokół HTTP, że HTML jest staty
 
 ASP .NET to framework do server-side web-app programming. Potrafi tworzyć ładne strony, generować  HTML-a a także da się w nim zrobić wydajne REST API. My będziemy się skupiać na tworzeniu stron.
 
-### Dlaczego asynchroniczne przetwarzanie jest ważne?
+### 4.1 Dlaczego asynchroniczne przetwarzanie jest ważne?
 
 Na serwerze, na którym odpalony jest ASP .NET jest pewna pula wątków, tzw. worker threads. W momencie, w którym dostaniemy HTTP request z zewnątrz, jeden z tych wątków się zrywa i zaczyna na niego odpowiadać. Do zrobienia może mieć sporo, musi najpierw zrobić routing, czyli znaleźć metodę, która ma na zapytanie odpowiedzieć; później wysyła zapytania do serwisów, co w przypadku architektury mikroserwisowej łączy się z wysłaniem czegoś po sieci. Na koniec z reguły trzeba dostać się do bazy danych, a to też trochę trwa. No i jak już w końcu zrobimy to co trzeba, to należy z tym wrócić i wysłać odpowiedź.
 
 Przy prostym zapytaniu, podróż do bazy danych zajmie lwią część czasu odpowiedzi na request. Jeśli serwer czeka kilkanaście milisekund na odpowiedź bazy, to prawdopodobnie nic w tym czasie nie robi. Gdyby tylko dało się np. rzucić request do bazy i zająć się czymś innym, w czasie gdy on się przetwarza...
 
-### `Task<T>` oraz `async`/`await`
+### 4.2 `Task<T>` oraz `async`/`await`
 
 Wszystkie metody, które
 - wysyłają HTTP requesty,
@@ -2077,7 +2119,7 @@ Teraz ktokolwiek, kto wywołał tę metodę, może kręcić się w kółko aż m
 
 W szczególności, nasz worker thread może stwierdzić, że skoro nie ma nic do roboty podczas gdy pakiety lecą sobie w świat do bazy danych, to zajmie się requestem innego użytkownika. W momencie kiedy innermost `Task` się zakończy, przybiegnie dokończyć swoją pracę (**uwaga:** nie musi to być ten sam wątek).
 
-### Dygresja: `Task.Run`
+### 4.3 Dygresja: `Task.Run`
 O ile programowanie asynchroniczne bardzo się przydaje przy IO-bound operations, to do CPU-bound operations również mamy bardzo proste i skuteczne mechanizmy. Po pierwsze, możemy odpalić dowolne zadanie i skierować je do puli wątków za pomocą `Task.Run`.
 
 ```csharp
@@ -2104,15 +2146,15 @@ await Task.WaitAll(tasks);
 ```
 Uwaga: robienie `await` jako ostatniej instrukcji w metodzie nie ma absolutnie żadnego sensu. Lepiej zwrócić taki `Task`.
 
-### Dygresja: Parallel
+### 4.4 Dygresja: `Parallel`
 
 Mamy też statyczne metody `Parallel.For` i `Parallel.Foreach`, które robią to co można się domyślić, że robią. Nie będziemy wnikać w szczegóły.
 
-### Dygresja: PLINQ
+### 4.5 Dygresja: PLINQ
 
 Istnieje też współbieżna wersja LINQ, którą można zawołać konwertując `IEnumerable` za pomocą `AsParallel()`, ale o LINQ będzie później.
 
-### MVC
+### 4.6 MVC
 ASP .NET Core pozwala na tworzenie aplikacji w dwóch UI architectural design patterns - MVVM (Razor Pages) i MVC. My skupimy się na MVC, które jest już established technologią.
 
 MVC to skrót od Model-View-Controller.
@@ -2125,13 +2167,13 @@ MVC to skrót od Model-View-Controller.
 
 W ASP .NET MVC widoki to widoki, kontrolery to kontrolery, a model to cała aplikacja pod spodem. Można go podzielić na kilka warstw (np. serwisy i repozytorium).
 
-### Kontrolery i routing
+### 4.7 Kontrolery i routing
 
 Każdy kontroler ma publiczne metody, zwane akcjami. Każda z nich reprezentuje pewien HTTP request, w przypadku aplikacji UI z reguły GET lub POST. Domyślnie odwołanie się do adresu `http://myapp.com/Controller/Action` wywoła akcję o nazwie `Action` w kontrolerze o nazwie `Controller`. Taka akcja zwraca pochodną `ActionResult`, która jest wysyłana do klienta. Najczęściej będzie to widok w przypadku apki webowej.
 
 Routing można dowolnie zmieniać i tworzyć własne reguły co i na co jest mapowane.
 
-### Widoki
+### 4.8 Widoki
 
 Widoki są pisane w HTML-u z Razorem (rozszerzenie .cshtml), który pozwala na wykonanie kodu w C# podczas generowania HTML-a. Podstawową częścią danego widoku jest Model do niego przekazany. Z reguły nie jest on tożsamy z Modelem z MVC - stanowi tylko jakiś snapshot danych wyciągniętych z bazy danych i przedstawionych w przystępnej formie użytkownikowi. Z tego też powodu często mówi się na nie ViewModels.
 
@@ -2222,7 +2264,7 @@ Uważny słuchacz zauważy brak takich tagów jak `<body>` czy `<head>`. To dlat
 
 Nasz widok jest wklejany tam, gdzie `@RenderBody()`.
 
-### Formularze i walidacja
+### 4.9 Formularze i walidacja
 
 Aby stworzyć np. nową kaczkę, musimy stworzyć kontroler,  który przekaże użytkownikowi odpowiedni widok. Na tym widoku  musi znajdować się formularz z danymi kaczki i przycisk do submitu. Tenże przycisk wywoła inną akcję w kontrolerze, która zapisze kaczkę i przekieruje użytkownika z powrotem na stronę główną.
 
@@ -2364,7 +2406,7 @@ Jesteśmy gotowi do stworzenia widoku.
 }
 ```
 
-### Identity
+### 4.10 Identity
 
 ASP .NET Core pozwala na zupełnie bezbolesne zintegrowanie systemu kont z naszą aplikacją. Wystarczy dopisać magiczne linijki w `Startup.ConfigureServices`
 
@@ -2386,7 +2428,7 @@ Dodatkowo nasza baza danych powinna dziedziczyć po `IdentityDbContext`, który 
 
 Teraz możemy zabezpieczyć nasze akcje `Create` przed dostępem z zewnątrz, oznaczając je atrybutem `AuthorizedAttribute`, który nie wpuszcza użytkowników niezalogowanych. Można ten mechanizm rozszerzyć o blokowanie użytkowników nienależących do konkretnych ról, np. nieadminów.
 
-### Co dalej?
+### 4.11 Co dalej?
 
 ASP .NET jest oczywiście o wiele potężniejszym narzędziem niż tylko maszynką do routingu i generowania widoków. W `Startup` możemy sobie skonfigurować cały request pipeline - po kolei wszystkie kroki, które nasza aplikacja wykonuje na requeście i responsie. Tag helpery, które już widzieliśmy w postaci `asp-for` i `asp-action`/`asp-controller` pozwalają na proste tworzenie skomplikowanych kontrolek z JS-em w środku. No ale na więcej zabawy nie starczy nam czasu.
 
@@ -2399,7 +2441,7 @@ Entity Framework to ORM - Object-Relational Mapping. Służy do połączenia int
 - Encje - obiekty .NET-owe reprezentujące rekordy w bazie;
 - LINQ to SQL - zintegrowany z C# język zapytań.
 
-### Konfiguracja bazy - encje i metadane
+### 5.1 Konfiguracja bazy - encje i metadane
 
 Istnieją dwa podejścia do pracy z EF: database-first i code-first. Database-first zakłada, że mamy gotową bazę danych i próbujemy zbudować na niej aplikację. Code-first zakłada, że kod naszej aplikacji i obiekty C#  determinują wygląd bazy danych. There are arguments for both, tutaj będziemy zajmować się wyłącznie code-first.
 
@@ -2512,13 +2554,13 @@ EF postanowił zrobić sobie indeks na FK, no niech mu będzie. Oczywiście mamy
 
 Słowo o migracjach: są to po prostu instrukcje dla bazy danych w jaki sposób zaktualizować model bazy i jak to potem cofnąć (prof. Stencel wbiega do sali krzycząc EWOLUCJA MODELU!). Domyślnie zablokowane jest tworzenie migracji, które spowodowałyby utratę danych (i bardzo dobrze).
 
-### LINQ
+### 5.2 LINQ
 
-Najlepszą część C# zostawiliśmy sobie na koniec. Language Integrated Query to język zapytań do przetwarzania potokowego kolekcji w C#. Jest to zbiór extension methods zdefiniowanych na `IEnumerable` (LINQ to Objects), plikach XML (LINQ to XML) oraz bazach pod Entity Frameworkiem (LINQ to Entities). 
+Najlepszą część C# zostawiliśmy sobie na koniec. Language Integrated Query - LINQ (czyt. link) - to język zapytań do przetwarzania potokowego kolekcji w C#. Jest to zbiór extension methods zdefiniowanych na `IEnumerable` (LINQ to Objects), plikach XML (LINQ to XML) oraz bazach pod Entity Frameworkiem (LINQ to Entities). 
 
 Zakładając źródło postaci `IEnumerable<TSource>`, podstawowe operacje to:
 
-### Select - projekcja
+### 5.3 `Select` - projekcja
 `IEnumerable<U> Select(Func<TSource, U>)` pozwala na transformację danych. Funkcja jest wywoływana dla każdego elementu i zwracany jest enumerable wyników.
 
 ```csharp
@@ -2540,7 +2582,7 @@ foreach(var name in ducks.Select(d => d.Name))
 > Azathoth
 ```
 
-### Where - selekcja/filtrowanie
+### 5.4 `Where` - selekcja/filtrowanie
 
 `IEnumerable<TSource> Where(Func<T, bool>)` zwraca elementy spełniające dany predykat.
 
@@ -2558,7 +2600,7 @@ foreach(var val in values.Where(v => v >= 8))
 > 8
 ```
 
-### SelectMany - spłaszczenie
+### 5.5 `SelectMany` - spłaszczenie
 
 `IEnumerable<TResult> SelectMany(Func<TSource, IEnumerable<TResult>)` wyłuskuje enumerable wyników z każdego elementu i łączy (spłaszcza) je w jeden.
 
@@ -2589,7 +2631,7 @@ foreach(var letter in ducks.SelectMany(d => d.Name.ToCharArray()))
 > ś
 ```
 
-### GroupBy - grupowanie
+### 5.6 `GroupBy` - grupowanie
 
 `IEnumerable<IGrouping<TKey, TSource>> GroupBy(Func<TSource, TKey>)`  grupuje po kluczu; ma wiele przeładowań, może automatycznie robić projekcję wynikowych grupowań i stosować customowe komparatory.
 
@@ -2618,7 +2660,7 @@ foreach(var grouping in ducks.GroupBy(d => d.Name))
 > Piotruś, Red color
 ```
 
-### OrderBy, ThenBy - sortowanie
+### 5.7 `OrderBy`, `ThenBy` - sortowanie
 
 `IOrderedEnumerable<TSource> OrderBy(Func<TSource, TKey>)` - sortowanie po kluczu; na wynikowym `IOrderedEnumerable` można zastosować `ThenBy(Func<TSource, TKey>`, żeby posortować po drugiej (trzeciej, czwartej...) wartości.
 
@@ -2644,7 +2686,7 @@ foreach(var duck in ducks.OrderBy(d => d.Name[0]).ThenBy(d => d.Name.Length))
 ```
 Wariantem są `OrderByDescending` oraz `ThenByDescending`.
 
-### Join
+### 5.8 `Join`
 
 `Join(IEnumerable<TInner>, Func<TSource,TKey>, Func<TInner,TKey>, Func<TSource,TInner,TResult>)` złącza dwa enumerable po kluczach i produkuje rezultat dla każdych dwóch zmatchowanych elementów.
 
@@ -2669,7 +2711,7 @@ foreach(var (name, colorA, colorB) in ducks.Join(ducks, d => d.Name, d => d.Name
 > Piotruś: Yellow - Yellow
 ```
 
-### Inne
+### 5.9 Inne
 
 - `Distinct`, można podać własny komparator;
 - `Skip(int)` - wyrzuca n elementów z początku;
@@ -2679,7 +2721,7 @@ foreach(var (name, colorA, colorB) in ducks.Join(ducks, d => d.Name, d => d.Name
 - `Union`, `Intersect`, `Except` - suma, przecięcie, różnica dwóch enumerabli
 - `Zip` - splot, taki `Select` na dwóch enumerablach  jednocześnie
 
-### Deffered execution
+### 5.10 Deferred execution
 
 Wszystkie powyższe metody tak naprawdę się nie wykonują. LINQ buduje sobie plan wykonania zbudowanego query i wykona go dopiero przy enumeracji, to znaczy po wrzuceniu do `foreacha` albo wykonaniu jednej z operacji, które już muszą zostać wykonane natychmiastowo (agregacje i budowanie kolekcji).
 Warto o tym pamiętać, po pierwsze dzięki temu można sobie złożyć zapytanie bardzo szybko z gotowych klocków i odpalić je asynchronicznie. Po drugie należy bardzo unikać tzw. multiple enumerations, przykładowo taki kod:
@@ -2706,7 +2748,7 @@ wywołuje selekcję dwa razy. Wystarczy sobie wyobrazić, że koszt wywołania t
 
 Wszystkie kolejne operacje LINQ wymienione w tej prezentacji powodują immediate execution.
 
-### ToList - execute!
+### 5.11 `ToList` - execute!
 
 Klasyka gatunku, jedna z najczęściej używanych operacji. Kiedy chcemy wykonać swoje query i zapisać wynik w `List<TResult>` wywołujemy `ToList()`. Można tym też przerobić dowolny `IEnumerable` na listę, np. `Array` czy `Dictionary`.
 
@@ -2716,7 +2758,7 @@ Koledzy `ToList` to:
 - `ToHashSet`
 - `ToLookup`
 
-### Agregacje
+### 5.12 Agregacje
 
 `int Max(Func<TSource, int>)`,
 `int Min(Func<TSource, int>)`,
@@ -2740,7 +2782,7 @@ Console.WriteLine(ducks.Aggregate(0, (a, d) => (a + d.Name.Length) % 2));
 > 1
 ```
 
-### First, Last, Single
+### 5.13 `First`, `Last`, `Single`
 
 `TSource First()`, `TSource  First(Func<TSource, bool>)`
 `TSource Last()`, `TSource  Last(Func<TSource, bool>)`
@@ -2766,15 +2808,37 @@ Console.WriteLine(firstLong.Name);
 > Azathoth
 ```
 
-### Empty
+### 5.14 `Empty`
 
 True jeśli enumerable pusty, false otherwise. Nuff said.
 
-### All/Any
+### 5.15 `Count`
+
+Zwraca liczbę elementów. Tutaj w szczególności zwróćmy uwagę na deferred execution.
+```csharp
+var src = _repository.Ducks;
+for(var i = 1; i <= src.Count(); ++i)
+{
+    /* ... */
+}
+for(var i = 1; i <= src.Count(); ++i)
+{
+    /* ... */
+}
+```
+Powyższy kod powoduje dwa wykonania LINQ i jeśli `_repository` jest podłączone do bazy danych, to wykona dwa zapytania.
+
+Dodatkowo używanie `Count` do sprawdzenia pustości, czyli
+```csharp
+var isEmpty = src.Count() == 0;
+```
+jest skrajnie nieinteligentne, bo zajmuje czas liniowy od wielkości kolekcji.
+
+### 5.16 `All`, `Any`
 
 Sprawdza, czy predykat zachodzi dla każdego/jakiegokolwiek elementu. Oczywiście nie jest głupie i breakuje wcześnie jeśli odpowiedź jest ustalona.
 
-### Query syntax
+### 5.17 Query syntax
 
 LINQ można też stosować z pseudo-SQLową składnią. Przykładowo:
 ```csharp
@@ -2791,7 +2855,7 @@ select (name: duck.Name, color1: duck.Color, color2: duck2.Color);
 ```
 Joiny wyglądają trochę lepiej, ale to tyle.
 
-### LINQ to Entities
+### 5.18 LINQ to Entities
 
 Jeśli będziemy wywoływać LINQ na `DbSetach`, to wykonanie query spowoduje wysłanie zapytania do bazy danych. Przykładowo
 
@@ -2810,7 +2874,7 @@ WHERE d."Color" = 0
 
 
 
-#### Include
+#### `Include`
 
 Zamiast robić joiny, możemy wywoływać domyślne joiny po FK za pomocą `Include`. Jeśli nie dodamy żadnego `Include`, standardowo wszystkie navigation properties będą puste, to znaczy kolekcje puste, pojedyncze referencje równe `null`. Jeśli dodamy `Include` na tej property, wygeneruje się SQL z odpowiednim Joinem.
 

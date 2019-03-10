@@ -4,13 +4,131 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome file</title>
+  <title>Prezentacja</title>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
 </head>
 
 <body class="stackedit">
-  <div class="stackedit__html"><h1 id="pobieżne-wprowadzenie-do-podstaw-części-c-tom-i-część-i">Pobieżne wprowadzenie do podstaw części C#, Tom I, Część I</h1>
-<p>Strona 1/60</p>
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#pobieżne-wprowadzenie-do-podstaw-części-c-tom-i-część-i">Pobieżne wprowadzenie do podstaw części C#, Tom I, Część I</a>
+<ul>
+<li><a href="#plan.">0. Plan.</a></li>
+<li><a href="#co-to-c.netframeworkcorestandard...">1. Co to C#/.NET(Framework/Core/Standard)/…?</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#jak-poprawnie-c">2. Jak poprawnie C#?</a></li>
+<ul style="margin-left: 10px">
+<li><a href="#klasyka-gatunku">2.1 Klasyka gatunku</a></li>
+<li><a href="#assembly-i-namespacey">2.2 Assembly i namespace'y</a></li>
+<li><a href="#podstawowe-typy">2.3 Podstawowe typy</a></li>
+<li><a href="#keyword-var">2.4 Keyword <code>var</code></a></li>
+<li><a href="#pętla-foreach">2.5 Pętla <code>foreach</code></a></li>
+<li><a href="#access-specifiers">2.6 Access specifiers</a></li>
+<li><a href="#enums">2.7 Enums</a></li>
+<li><a href="#fields">2.8 Fields</a></li>
+<li><a href="#properties">2.9 Properties</a></li>
+<li><a href="#metody">2.10 Metody</a></li>
+<li><a href="#interfejsy">2.11 Interfejsy</a></li>
+<li><a href="#klasy-abstrakcyjne">2.12 Klasy abstrakcyjne</a></li>
+<li><a href="#dziedziczenie">2.13 Dziedziczenie</a></li>
+<li><a href="#przeciążanie">2.14 Przeciążanie</a></li>
+<li><a href="#przeładowywanie-overriding">2.15 Przeładowywanie (overriding)</a></li>
+<li><a href="#hiding">2.16 Hiding</a></li>
+<li><a href="#konstruktory">2.17 Konstruktory</a></li>
+<li><a href="#sealed">2.18 Sealed</a></li>
+<li><a href="#partial">2.19 Partial</a></li>
+<li><a href="#reference-types-vs-value-types">2.20 Reference types vs Value types</a></li>
+<li><a href="#wolność-równość-braterstwo">2.21 <s>Wolność</s>, równość, <s>braterstwo</s></a></li>
+<li><a href="#rzutowanie">2.22 Rzutowanie</a></li>
+<li><a href="#boxing">2.23 Boxing</a></li>
+<li><a href="#parametry-ref-i-out">2.24 Parametry <code>ref</code> i <code>out</code></a></li>
+<li><a href="#parse-i-tryparse">2.25 <code>Parse</code> i <code>TryParse</code></a></li>
+<li><a href="#convert">2.26 Convert</a></li>
+<li><a href="#to-be-or-not-to-be">2.27 To be, or not to be?</a></li>
+<li><a href="#generics">2.28 Generics</a></li>
+<li><a href="#generic-constraints">2.29 Generic constraints</a></li>
+<li><a href="#nullablet">2.30 <code>Nullable&lt;T&gt;</code></a></li>
+<li><a href="#kolekcje">2.31 Kolekcje</a></li>
+<li><a href="#ko--i-kontrawariancja">2.32 Ko- i kontrawariancja</a></li>
+<li><a href="#stringi">2.33 Stringi</a></li>
+<li><a href="#więcej-o-verbatim">2.34 Więcej o verbatim</a></li>
+<li><a href="#statyczne-klasy">2.35 Statyczne klasy</a></li>
+<li><a href="#extension-methods">2.36 Extension methods</a></li>
+<li><a href="#operatory">2.37 Operatory</a></li>
+<li><a href="#przeciążanie-operatorów">2.38 Przeciążanie operatorów</a></li>
+<li><a href="#indekser">2.39 Indekser</a></li>
+<li><a href="#custom-cast">2.40 Custom cast</a></li>
+<li><a href="#tuples-valuetuple">2.41 Tuples (ValueTuple)</a></li>
+<li><a href="#wyjątki">2.42 Wyjątki</a></li>
+<li><a href="#garbage-collector">2.43 Garbage collector</a></li>
+<li><a href="#dispose">2.44 Dispose</a></li>
+<li><a href="#finalize">2.45 Finalize</a></li>
+<li><a href="#atrybuty">2.46 Atrybuty</a></li>
+<li><a href="#nameof">2.47 <code>nameof</code></a></li>
+<li><a href="#delegates">2.48 Delegates</a></li>
+<li><a href="#lambdy">2.49 Klasyka gatunku</a></li>
+<li><a href="#lazyt">2.50 <code>Lazy&lt;T&gt;</code></a></li>
+<li><a href="#lokalne-metody">2.51 Lokalne metody</a></li>
+<li><a href="#to-już-jest-prawie-koniec">2.52 To już jest (prawie) koniec</a></li>
+</ul>
+<li><a href="#yyy-na-mimie-nie-uczą-o-solid1">3. “Yyy, na MIMie nie uczą o SOLID!!!1”</a></li>
+<ul style="margin-left: 10px">
+<li><a href="#inversion-of-control">3.1 Inversion of Control</a></li>
+<li><a href="#ioc-container--service-locator">3.2 IoC Container / Service Locator</a></li>
+<li><a href="#testowanie-xunit">3.3 Testowanie (XUnit)</a></li>
+</ul>
+<li><a href="#jak-działa-asp-.net">4. Jak działa ASP .NET?</a></li>
+<ul style="margin-left: 10px">
+<li><a href="#dlaczego-asynchroniczne-przetwarzanie-jest-ważne">4.1 Dlaczego asynchroniczne przetwarzanie jest ważne?</a></li>
+<li><a href="#taskt-oraz-asyncawait">4.2 <code>Task&lt;T&gt;</code> oraz <code>async</code>/<code>await</code></a></li>
+<li><a href="#dygresja-task.run">4.3 Dygresja: <code>Task.Run</code></a></li>
+<li><a href="#dygresja-parallel">4.4 Dygresja: <code>Parallel</code></a></li>
+<li><a href="#dygresja-plinq">4.5 Dygresja: PLINQ</a></li>
+<li><a href="#mvc">4.6 MVC</a></li>
+<li><a href="#kontrolery-i-routing">4.7 Kontrolery i routing</a></li>
+<li><a href="#widoki">4.8 Widoki</a></li>
+<li><a href="#formularze-i-walidacja">4.9 Formularze i walidacja</a></li>
+<li><a href="#identity">4.10 Identity</a></li>
+<li><a href="#co-dalej">4.11 Co dalej?</a></li>
+</ul>
+<li><a href="#jak-działa-entity-framework">5. Jak działa Entity Framework?</a></li>
+<ul style="margin-left: 10px">
+<li><a href="#konfiguracja-bazy---encje-i-metadane">5.1 Konfiguracja bazy - encje i metadane</a></li>
+<li><a href="#linq">5.2 LINQ</a></li>
+<li><a href="#select---projekcja">5.3 <code>Select</code> - projekcja</a></li>
+<li><a href="#where---selekcjafiltrowanie">5.4 <code>Where</code> - selekcja/filtrowanie</a></li>
+<li><a href="#selectmany---spłaszczenie">5.5 <code>SelectMany</code> - spłaszczenie</a></li>
+<li><a href="#groupby---grupowanie">5.6 <code>GroupBy</code> - grupowanie</a></li>
+<li><a href="#orderby-thenby---sortowanie">5.7 <code>OrderBy</code>, <code>ThenBy</code> - sortowanie</a></li>
+<li><a href="#join">5.8 <code>Join</code></a></li>
+<li><a href="#inne">5.9 Inne</a></li>
+<li><a href="#deferred-execution">5.10 Deferred execution</a></li>
+<li><a href="#tolist---execute">5.11 <code>ToList()</code> - execute!</a></li>
+<li><a href="#agregacje">5.12 Agregacje</a></li>
+<li><a href="#first-last-single">5.13 <code>First</code>, <code>Last</code>, <code>Single</code></a></li>
+<li><a href="#empty">5.14 <code>Empty</code></a></li>
+<li><a href="#count">5.15 <code>Count</code></a></li>
+<li><a href="#allany">5.16 <code>All</code>, <code>Any</code></a></li>
+<li><a href="#query-syntax">5.17 Query syntax</a></li>
+<li><a href="#linq-to-entities">5.18 LINQ to Entities</a></li>
+</ul>
+<li><a href="#przykładowa-apka.">6. Przykładowa apka.</a></li>
+<li><a href="#koniec">Koniec</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="pobieżne-wprowadzenie-do-podstaw-części-c-tom-i-część-i">Pobieżne wprowadzenie do podstaw części C#, Tom I, Część I</h1>
+<p><small>v1.0.1 Copyright © Mateusz Gienieczko 2019</small></p>
 <h2 id="plan.">0. Plan.</h2>
 <ol start="0">
 <li>Plan.</li>
@@ -56,7 +174,7 @@
 C# jest zorientowany na bezpieczeństwo i wygodę developera. Tak długo, jak poruszamy się po świecie CLR-managed kodu najgorsze co może nas spotkać to <code>NullReferenceException</code> albo błąd logiki. Nie da się zaorać sobie kawałka pamięci, zapomnieć coś zwolnić, a momenty, w których krzyczymy na język, że jest upośledzony (vide Java) oraz takie, w których język krzyczy na nas, że jesteśmy za głupi (vide C++), są ograniczone do minimum. C# ma też wspaniałe środowisko w postaci tandemu VisualStudio + ReSharper.<br>
 Ale nawet wtedy pozwala nam porzucić granice zdrowego rozsądku i udostępnia typowanie dynamiczne (<code>dynamic</code>) oraz magiczny keyword <code>unsafe</code>, który wyłącza GC, ABS i wspomaganie kierownicy.<br>
 W tej prezentacji jednak nie będziemy poza rzeczone granice wychodzić.</p>
-<h3 id="klasyka-gatunku">Klasyka gatunku</h3>
+<h3 id="klasyka-gatunku">2.1 Klasyka gatunku</h3>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">namespace</span> SeeITSharp 
 <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span>
@@ -75,7 +193,7 @@ W tej prezentacji jednak nie będziemy poza rzeczone granice wychodzić.</p>
 </ul>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
 </code></pre>
-<h3 id="assembly-i-namespacey">Assembly i namespace’y</h3>
+<h3 id="assembly-i-namespacey">2.2 Assembly i namespace’y</h3>
 <p>Pojedyncza jednostka kompilacji w świecie .NET-u to assembly. Skompilowane assembly ma rozszerzenie <code>.dll</code> w przypadku bibliotek, a <code>.exe</code> w przypadku wykonywalnych aplikacji (czyli takich z <code>Mainem</code>).<br>
 W obrębie danego assembly możemy mieć wiele namespace’ów. Można o tym myśleć jak o strukturze katalogów - katalog nadrzędny to nazwa assembly, każdy kolejny zagnieżdżony namespace to podkatalog. Kolejne namespace’y oddzielamy kropką.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">namespace</span> SeeITSharp<span class="token punctuation">.</span>MyNamespace<span class="token punctuation">.</span>MySubnamespace
@@ -97,7 +215,9 @@ W obrębie danego assembly możemy mieć wiele namespace’ów. Można o tym my�
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="podstawowe-typy">Podstawowe typy</h3>
+<pre><code>&gt; Hello World!
+</code></pre>
+<h3 id="podstawowe-typy">2.3 Podstawowe typy</h3>
 <p>Podstawowe funkcjonalności języka są podobne jak w Javie.  Mamy garść typów wbudowanych:</p>
 <ul>
 <li><code>bool</code> - <code>true</code>, <code>false</code>;</li>
@@ -130,7 +250,7 @@ W obrębie danego assembly możemy mieć wiele namespace’ów. Można o tym my�
 <span class="token punctuation">}</span>
 Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code>&gt; 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+<pre><code>&gt; 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 </code></pre>
 <p>Wielowymiarowe tablice występują w dwóch smakach: multidimensional arrays oraz jagged (z ang. poszarpany) arrays.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> jagged <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -151,7 +271,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 &gt;  1
 </code></pre>
 <p>Jagged to tablica tablic, multidimensional to pojedyncza tablica z magią w środku. Multidimensional powinno się używać tylko wtedy, kiedy rzeczywiście operujemy na prostokątach (vel prostopadłościanach w N wymiarach). Jagged  zawsze wtedy, kiedy możemy mieć np. różne liczby kolumn dla każdego wiersza.</p>
-<h3 id="keyword-var">Keyword <code>var</code></h3>
+<h3 id="keyword-var">2.4 Keyword <code>var</code></h3>
 <p>C# jest statycznie typowany, ale niekoniecznie explicitly typowane. Posiada local variable type inference, tzn. kompilator jest w stanie wywnioskować typ deklaracji na podstawie przypisania.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 </code></pre>
@@ -161,7 +281,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> line <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Variable line is a string.</span>
 </code></pre>
 <p>Istnieją różne konwencje używania <code>var</code>. Bodajże najpopularniejsza głosi “używaj <code>var</code> zawsze wtedy, kiedy typ po prawej jest widoczny na pierwszy rzut oka.” Ja sam posługuję się konwencją “używaj <code>var</code> zawsze”. Jednakże w jednym wszystkie konwencje są zgodne - wbudowane typy to zawsze <code>var</code>. Wszelkie <code>inty</code>, <code>stringi</code> itp. zamieniamy na <code>var</code>.</p>
-<h3 id="pętla-foreach">Pętla <code>foreach</code></h3>
+<h3 id="pętla-foreach">2.5 Pętla <code>foreach</code></h3>
 <p>Do iterowania się po tablicach, a w przyszłości po <code>IEnumerable</code>, w większości przypadków używa się pętli <code>foreach</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> tab <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -177,7 +297,9 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 
 Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="access-specifiers">Access specifiers</h3>
+<pre><code>&gt; 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+</code></pre>
+<h3 id="access-specifiers">2.6 Access specifiers</h3>
 <p>Zajmijmy się w końcu klasami. W C# mamy cztery/sześć access specifiery, zależy pod jakim kątem spojrzeć.</p>
 <ul>
 <li><code>public</code> - widoczne wszędzie (jak w Javie)</li>
@@ -191,7 +313,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <li><code>private protected</code> - widoczne tylko w obrębie tego assembly, tylko dla mnie i tego co po mnie dziedziczy</li>
 </ul>
 <p>Nigdy nie zdarzyło mi się użyć tych dwóch ostatnich.</p>
-<h3 id="enums">Enums</h3>
+<h3 id="enums">2.7 Enums</h3>
 <p>Enumy w C# nie różnią się niczym specjalnym od tych w innych językach.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">enum</span> Color 
 <span class="token punctuation">{</span>
@@ -219,7 +341,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; 19
 </code></pre>
-<h3 id="fields">Fields</h3>
+<h3 id="fields">2.8 Fields</h3>
 <p>Pola wewnątrz klasy deklaruje się jak w Javie.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RubberDuck</span>
 <span class="token punctuation">{</span>
@@ -240,7 +362,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <p>Kompilator widząc pole lub zmienną <code>const</code> zamienia każde jej wystąpienie na podaną wartość, stąd ograniczenie na compile-time constant.</p>
 <p>Niestatyczne pola powinny być prywatne. Jak nie są prywatne, to pewnie coś poszło nie tak przy projektowaniu klasy.</p>
 <p>Popularną konwencją nazewnictwa (i zalecaną przez MSDN) jest pisanie prywatnych pól _camelCasem (zaczynanym od podłogi), aczkolwiek spotyka się też zwykły camelCase. Stałe piszemy CamelCasem.</p>
-<h3 id="properties">Properties</h3>
+<h3 id="properties">2.9 Properties</h3>
 <p>Skoro pola są prywatne, to potrzebujemy getterów i setterów. W Javie piszemy własne <code>getValue()</code> <code>setValue(T)</code>, C# na szczęście jest lepszy, bo ma properties.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">private</span> <span class="token keyword">int</span> _timesSqueaked <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
@@ -286,14 +408,14 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <span class="token keyword">public</span> <span class="token keyword">int</span> Number <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 <span class="token keyword">public</span> <span class="token keyword">int</span> AverageValue <span class="token operator">=</span><span class="token operator">&gt;</span> Sum <span class="token operator">/</span> Number<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="metody">Metody</h3>
+<h3 id="metody">2.10 Metody</h3>
 <p>Jakie metody są, każdy widzi. Deklarujemy typ zwracany i przyjmowane argumenty. Do instancji, na której wywołano metodę, możemy się odwołać za pomocą <code>this</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token keyword">string</span> message<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Squeak! "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>TimesSqueaked<span class="token operator">++</span><span class="token punctuation">;</span>  <span class="token comment">// This this is actually redundant.</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>TimesSqueaked<span class="token operator">++</span><span class="token punctuation">;</span>  <span class="token comment">// This `this` is actually redundant.</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -336,7 +458,7 @@ duck<span class="token punctuation">.</span><span class="token function">Squeak<
 </code></pre>
 <pre><code>&gt; Squeak!
 </code></pre>
-<h3 id="interfejsy">Interfejsy</h3>
+<h3 id="interfejsy">2.11 Interfejsy</h3>
 <p>Interfejsy mogą zawierać tylko i wyłącznie deklaracje publicznych metod (jest to nieprawda w C# 8). Gettery i settery to metody:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IDuck</span>
 <span class="token punctuation">{</span>
@@ -345,7 +467,7 @@ duck<span class="token punctuation">.</span><span class="token function">Squeak<
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Klasa może implementować dowolnie wiele interfejsów. Aby implementować interfejs należy dostarczyć publiczne metody o podanych sygnaturach.</p>
-<h3 id="klasy-abstrakcyjne">Klasy abstrakcyjne</h3>
+<h3 id="klasy-abstrakcyjne">2.12 Klasy abstrakcyjne</h3>
 <p>Klasy abstrakcyjne służą do implementacji części interfejsu i pozostawienia pewnych szczegółów dla implementujących klasy dziedziczące. Mogą posiadać metody bez implementacji. Klasa abstrakcyjna nie może zostać zainstancjonowana, ale może mieć konstruktor.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">DuckBase</span> <span class="token punctuation">:</span> IDuck
 <span class="token punctuation">{</span>
@@ -365,7 +487,7 @@ duck<span class="token punctuation">.</span><span class="token function">Squeak<
     <span class="token keyword">protected</span> <span class="token function">ProcessSqueak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="dziedziczenie">Dziedziczenie</h3>
+<h3 id="dziedziczenie">2.13 Dziedziczenie</h3>
 <p>Klasy mogą dziedziczyć po maksymalnie jednej innej klasie i implementować dowolnie wiele interfejsów. Klasy dziedziczą wszystkie metody, pola etc., nie dziedziczą jedynie ctorów (i dtorów).<br>
 Każda klasa dziedziczy domyślnie po <code>System.Object</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
@@ -385,7 +507,7 @@ duck<span class="token punctuation">.</span><span class="token function">Squeak<
 </code></pre>
 <pre><code>&gt; Squeak!
 </code></pre>
-<h3 id="przeciążanie">Przeciążanie</h3>
+<h3 id="przeciążanie">2.14 Przeciążanie</h3>
 <p>Metody można przeciążać, t.j. deklarować dwie metody o tej samej nazwie, ale z innymi parametrami i/lub z innym typem zwracanym. Kompilator wybierze najlepiej pasującą metodę at compile time.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SqueakADuck</span><span class="token punctuation">(</span>Duck duck<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -409,11 +531,11 @@ Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <spa
 &gt; Better squeak!
 &gt; Squeak!
 </code></pre>
-<h3 id="przeładowywanie-overriding">Przeładowywanie (overriding)</h3>
+<h3 id="przeładowywanie-overriding">2.15 Przeładowywanie (overriding)</h3>
 <p>Metody można przeładowywać (override’ować), ale tylko jeśli w klasie bazowej były zadeklarowane jako <code>virtual</code>. Trzeba to zaznaczyć za pomocą <code>override</code>. Oczywiście mamy polimorfizm.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Squeak!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -421,7 +543,7 @@ Duck betterDuckDisguisedAsANormalDuck <span class="token operator">=</span> <spa
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BetterDuck</span> <span class="token punctuation">:</span> Duck
 <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Better squeak!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -440,9 +562,9 @@ betterDuckDisguisedAsANormalDuck<span class="token punctuation">.</span><span cl
 &gt; Better squeak!
 </code></pre>
 <p>Może się zdarzyć, że chcemy wywołać implementację z klasy bazowej. Służy do tego keyword <code>base</code>.</p>
-<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BetterDuck</span>
+<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BetterDuck</span> <span class="token punctuation">:</span> Duck
 <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Better squeak!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">Squeak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -455,7 +577,7 @@ betterDuck<span class="token punctuation">.</span><span class="token function">S
 <pre><code>&gt; Better squeak!
 &gt; Squeak!
 </code></pre>
-<h3 id="hiding">Hiding</h3>
+<h3 id="hiding">2.16 Hiding</h3>
 <p>Metodę z klasy wyżej można ukryć, ale rezygnujemy wtedy z polimorfizmu.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
@@ -482,7 +604,7 @@ duck<span class="token punctuation">.</span><span class="token function">Squeak<
 <pre><code>&gt; Better squeak!
 &gt; Squeak!
 </code></pre>
-<h3 id="konstruktory">Konstruktory</h3>
+<h3 id="konstruktory">2.17 Konstruktory</h3>
 <p>W skrócie ctor, służy do tworzenia obiektów klasy za pomocą <code>new</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
@@ -530,7 +652,7 @@ Możemy też wywołać konstruktor z konstruktora za pomocą <code>this</code>.<
 
 <span class="token keyword">var</span> duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span> <span class="token punctuation">{</span> Name <span class="token operator">=</span> <span class="token string">"Jacuś"</span><span class="token punctuation">,</span> Color <span class="token operator">=</span> Color<span class="token punctuation">.</span>Yellow <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="sealed">Sealed</h3>
+<h3 id="sealed">2.18 Sealed</h3>
 <p>Klasy możemy zamknąć na dziedziczenie poprzez keyword <code>sealed</code>. Można też nim zablokować dalsze przeładowywanie metody wirtualnej.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
@@ -555,7 +677,7 @@ Możemy też wywołać konstruktor z konstruktora za pomocą <code>this</code>.<
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="partial">Partial</h3>
+<h3 id="partial">2.19 Partial</h3>
 <p>Klasy, interfejsy i structy można zadeklarować jako <code>partial</code> i rozbić ich implementację na kilka plików.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token comment">// Duck.cs</span>
 <span class="token keyword">public</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
@@ -574,7 +696,7 @@ Możemy też wywołać konstruktor z konstruktora za pomocą <code>this</code>.<
 </code></pre>
 <p>Taka deklaracja zostaje złączona w całość w czasie kompilacji. Wszystkie access specifiery muszą być zgodne, <code>sealed</code> przechodzi na cały typ, dziedziczenie po klasie przechodzi na cały typ, implementowana jest suma wszystkich interfejsów.<br>
 Metody też mogą być <code>partial</code>, wtedy jeden plik podaje jej sygnaturę i <em>opcjonalnie</em> inny plik ją implementuje. Jeśli implementacja nie istnieje, metoda jest ignorowana przez kompilator.</p>
-<h3 id="reference-types-vs-value-types">Reference types vs Value types</h3>
+<h3 id="reference-types-vs-value-types">2.20 Reference types vs Value types</h3>
 <p>W C# istnieje też keyword <code>struct</code> służący do tworzenia nowych typów. W przeciwieństwie do C++ różnica pomiędzy <code>class</code> a <code>struct</code> istnieje i jest znaczna. Klasy reprezentują reference types, structy value types.</p>
 <ul>
 <li><strong>Reference type</strong> - instancja tego typu zawiera referencję (wskaźnik) na blok pamięci zawierający dane obiektu; przekazanie takiej instancji np. jako parametr funkcji i zmodyfikowanie w niej czegoś poskutkuje zmianą oryginalnego obiektu</li>
@@ -663,7 +785,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <p>Ciekawostka przyrodnicza - wszystkie keywordy <code>int</code>, <code>object</code>, <code>string</code> itp. są tak naprawdę jedynie aliasami na typy <code>struct System.Int32</code>, <code>class System.Object</code>, <code>class System.String</code>.</p>
 <p>Domyślną wartością reference type jest <code>null</code>,  domyślną wartością value type są wyzerowane bity. Value types nie mogą mieć bezparametrowych ctorów. Value types nie mogą po niczym dziedziczyć (ani nie można dziedziczyć po nich), ale mogą implementować interfejsy.</p>
-<h3 id="wolność-równość-braterstwo"><s>Wolność</s>, równość, <s>braterstwo</s></h3>
+<h3 id="wolność-równość-braterstwo">2.21 <s>Wolność</s>, równość, <s>braterstwo</s></h3>
 <p>Istnieje metod <code>static bool Object.ReferenceEquals(object, object)</code>, która sprawdza, czy przekazane obiekty są tym samym. Dla value types w oczywisty sposó zawsze zwraca <code>false</code>.<br>
 Istnieje metoda <code>bool Object.Equals(object)</code>, którą dziedziczą wszystkie typy. Domyślnie porównanie za pomocą <code>Equals</code> jest równoważne <code>ReferenceEquals</code> dla reference types, a dla value types porównuje każdy bit. Da się ją przeciążyć.<br>
 Domyślnie porównanie za pomocą operatora <code>==</code> jest równoważna <code>ReferenceEquals</code> dla reference types i jest niezdefiniowany dla value types. Da się go przeciążyć.<br>
@@ -715,7 +837,7 @@ Wszystkie wbudowane value types mają przeciążone <code>==</code> na równowa�
 	
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="rzutowanie">Rzutowanie</h3>
+<h3 id="rzutowanie">2.22 Rzutowanie</h3>
 <ul>
 <li>Casty, przy których nie ma ryzyka utraty informacji są implicit.</li>
 </ul>
@@ -771,7 +893,7 @@ BetterDuck betterDuck <span class="token operator">=</span> duck <span class="to
 </code></pre>
 <pre><code>&gt; Better squeak!
 </code></pre>
-<h3 id="boxing">Boxing</h3>
+<h3 id="boxing">2.23 Boxing</h3>
 <p>Przy takim przypisaniu:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
 <span class="token keyword">object</span> obj <span class="token operator">=</span> i<span class="token punctuation">;</span>
@@ -780,7 +902,7 @@ BetterDuck betterDuck <span class="token operator">=</span> duck <span class="to
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
 </code></pre>
 <p>Boxing zżera czas, więc należy go unikać.</p>
-<h3 id="parametry-ref-i-out">Parametry <code>ref</code> i <code>out</code></h3>
+<h3 id="parametry-ref-i-out">2.24 Parametry <code>ref</code> i <code>out</code></h3>
 <p>C# pozwala na mało eleganckie przekazywanie zmiennych przez referencję. Można więc przekazać referencję na referencję lub referencję na value type.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Nullify</span><span class="token punctuation">(</span><span class="token keyword">ref</span> Duck duck<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -816,7 +938,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 &gt; 42
 </code></pre>
 <p>Różnica między <code>ref</code> a <code>out</code> - <code>ref</code> musi być przypisany przed przekazaniem, <code>out</code> nie. Metoda musi przypisać coś do <code>out</code>, do <code>ref</code> nie.</p>
-<h3 id="parse-i-tryparse">Parse i TryParse</h3>
+<h3 id="parse-i-tryparse">2.25 Parse i TryParse</h3>
 <p>Do konwersji stringów na liczby używa się funkcji <code>Parse</code> lub <code>TryParse</code>.  Ta pierwsza rzuca wyjątek przy niepowodzeniu, ta druga zwraca <code>boola</code> i wypełnia <code>out</code> parameter jeśli się udało.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span><span class="token string">"42"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -834,7 +956,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; 42
 </code></pre>
-<h3 id="convert">Convert</h3>
+<h3 id="convert">2.26 Convert</h3>
 <p>Zaawansowane konwersje pomiędzy bazowymi typami powinny używać <code>Convert</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">1.6</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> i <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToInt32</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -843,7 +965,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; 2
 </code></pre>
-<h3 id="to-be-or-not-to-be">To be, or not to be?</h3>
+<h3 id="to-be-or-not-to-be">2.27 To be, or not to be?</h3>
 <p>C# ma rozbudowany mechanizm refleksji, który pozwala np. dostać metadane o typie danego obiektu at runtime.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Type t <span class="token operator">=</span> duck<span class="token punctuation">.</span><span class="token function">GetType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -853,7 +975,7 @@ Type t <span class="token operator">=</span> duck<span class="token punctuation"
 </code></pre>
 <p>Można też np. złapać wszystkie metody dostępne dla danego typu, wszystkie interfejsy, klasy bazowe czy wyzerować wszystkie prywatne pola. Use responsibly (which means don’t use at all unless you need it).<br>
 Jest też wolna, like, bardzo.</p>
-<h3 id="generics">Generics</h3>
+<h3 id="generics">2.28 Generics</h3>
 <p>Suck it, Java.<br>
 Generyczne mogą być zarówno typy jak i metody. Przykładem generycznej klasy jest np. <code>List&lt;T&gt;</code>, który może przechowywać dowolne obiekty. W przeciwieństwie do pewnego języka na J, informacja o typie zostaje zachowana at compile time.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token generic-method function">PrintDuckType<span class="token punctuation">&lt;</span>TDuck<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>TDuck duck<span class="token punctuation">)</span>
@@ -916,7 +1038,7 @@ Duck betterDuckDisguisedAsADuck <span class="token operator">=</span> <span clas
     <span class="token comment">/* ... */</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="generic-constraints">Generic constraints</h3>
+<h3 id="generic-constraints">2.29 Generic constraints</h3>
 <p>Umożliwianie przekazania dowolnego typu do generycznej klasy lub metody z reguły jest mało przydatne. Można jednak nałożyć ograniczenia na typ generyczny - kazać mu implementować jakieś interfejsy lub dziedziczyć po konkretnej klasie.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IDuck</span>
 <span class="token punctuation">{</span>
@@ -976,7 +1098,7 @@ Duck betterDuckDisguisedAsADuck <span class="token operator">=</span> <span clas
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Dodatkowo, jeśli się nie mylę, to stworzenie generyka od typu <code>int</code> jest niemożliwe w Javie i trzeba robić boxing. Oczywiście C# nie jest tak skrajnie upośledzony i parametrem generycznym może być dowolny typ. Nie jest jednak tak fajny jak C++ i nie pozwala, żeby to była np. stała.</p>
-<h3 id="nullablet"><code>Nullable&lt;T&gt;</code></h3>
+<h3 id="nullablet">2.30 <code>Nullable&lt;T&gt;</code></h3>
 <p>Value types nie mogą być nullem, ale czasem może być to potrzebne. Z tego powodu istnieje wrapper class <code>Nullable&lt;T&gt;</code>, który można też wywołać lukrem syntaktycznym <code>T?</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Nullable</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">where</span> T <span class="token punctuation">:</span> <span class="token keyword">struct</span>
 <span class="token punctuation">{</span>
@@ -994,7 +1116,7 @@ i <span class="token operator">=</span> <span class="token keyword">null</span><
 i <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 </code></pre>
 <p><code>Nullable&lt;T&gt;</code> boxuje!</p>
-<h3 id="kolekcje">Kolekcje</h3>
+<h3 id="kolekcje">2.31 Kolekcje</h3>
 <p>.NET udostępnia generyczne kolekcje i interfejsy w <code>System.Collections.Generic</code>.</p>
 <p><strong>Intefejsy</strong>:</p>
 <ul>
@@ -1026,9 +1148,12 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; 2137
 </code></pre>
-<h3 id="ko--i-kontrawariancja">Ko- i kontrawariancja</h3>
-<p>Kowariancja jest wtedy, kiedy nic nie wkładamy, ale wyciągamy.<br>
-Kontrawariancja jest wtedy, kiedy wkładamy, ale nie wyciągamy.</p>
+<h3 id="ko--i-kontrawariancja">2.32 Ko- i kontrawariancja</h3>
+<p>Intuicja:</p>
+<ul>
+<li>Kowariancja jest wtedy, kiedy nic nie wkładamy, ale wyciągamy.</li>
+<li>Kontrawariancja jest wtedy, kiedy wkładamy, ale nie wyciągamy.</li>
+</ul>
 <pre class=" language-csharp"><code class="prism  language-csharp">IEnumerable<span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>BetterDuck<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Nasze interfejsy mogą być ko- lub kontrawariantne dzięki keywordom <code>out</code> i <code>in</code>.</p>
@@ -1049,7 +1174,7 @@ IDuckGenerator<span class="token operator">&lt;</span>Duck<span class="token ope
 <span class="token comment">// Contravariance.</span>
 IDuckSqueaker<span class="token operator">&lt;</span>BetterDuck<span class="token operator">&gt;</span> duckSqueaker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DuckSqueaker</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="stringi">Stringi</h3>
+<h3 id="stringi">2.33 Stringi</h3>
 <p>Wspomnieliśmy już, że porównywanie zmiennych typu <code>string</code> za pomocą <code>==</code> jest intuicyjne. Należy pamiętać także o bardzo ważnej rzeczy - stringi są immutable. To znaczy, że wywołanie:</p>
 <pre><code>var str = "Hello";
 str += " World!";
@@ -1127,12 +1252,12 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; Jacuś\n
 </code></pre>
-<h3 id="więcej-o-verbatim">Więcej o verbatim</h3>
+<h3 id="więcej-o-verbatim">2.34 Więcej o verbatim</h3>
 <p>Jak już przy tym jesteśmy, znaczka <code>@</code> można użyć też do escape’owania keywordów.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token comment">// object object = new object() // Does not compile.</span>
 <span class="token keyword">object</span> @<span class="token keyword">object</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// This is correct.</span>
 </code></pre>
-<h3 id="statyczne-klasy">Statyczne klasy</h3>
+<h3 id="statyczne-klasy">2.35 Statyczne klasy</h3>
 <p>Czasami metody albo stałe nie należą do żadnej konkretnej instancji, ale są ogólną własnością klasy. Deklarujemy je wtedy jako <code>static</code>. Często jednak zdarza się, że mamy wiele pomocniczych metod, które nijak nie są związane z konkretnym obiektem (np. klasa <code>Math</code>). Wtedy taką klasę można zadeklarować jako statyczną. Nie może mieć ona ctora  i nie da się stworzyć jej instancji. Wszystkie jej składowe też muszą być statyczne.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Math</span>
 <span class="token punctuation">{</span>
@@ -1142,7 +1267,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">Max</span><span class="token punctuation">(</span><span class="token keyword">int</span> val1<span class="token punctuation">,</span> <span class="token keyword">int</span> val2<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>val1 <span class="token operator">&gt;=</span> val2<span class="token punctuation">)</span> <span class="token operator">?</span> val1 <span class="token punctuation">:</span> val2<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="extension-methods">Extension methods</h3>
+<h3 id="extension-methods">2.36 Extension methods</h3>
 <p>Bardzo ciekawym mechanizmem jak na statycznie typowany język są extension methods. Jest to co prawda jedynie lukier syntaktyczny, ale pozwala nam wywoływać metody na obiektach danego typu jakby były ich memberami.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">DuckExtensions</span>
 <span class="token punctuation">{</span>
@@ -1164,7 +1289,7 @@ duck<span class="token punctuation">.</span><span class="token function">SqueakN
 &gt; Squeak!
 </code></pre>
 <p>Nie można jednak w ten sposób obejść access specifierów - widzimy tylko publiczne rzeczy (ewentualnie <code>internal</code>).</p>
-<h3 id="operatory">Operatory</h3>
+<h3 id="operatory">2.37 Operatory</h3>
 <p>W C# mamy standardowe operatory jak w C lub C++. Przydatną informacją jest to, że operatory <code>||</code> oraz <code>&amp;&amp;</code> są leniwe (defacto są zaimplementowane za pomocą <code>|</code> i <code>&amp;</code>). W przypadku <code>bool?</code> zachowanie tych operatorów jest takie jak w SQL-u (stety/niestety).</p>
 <p>C# ma też tzw. null-coalescing operator `??</p>
 <pre class=" language-csharp"><code class="prism  language-csharp">a <span class="token operator">?</span><span class="token operator">?</span> b<span class="token punctuation">;</span>
@@ -1178,7 +1303,7 @@ duck<span class="token punctuation">.</span><span class="token function">SqueakN
 <p>jest równoważne</p>
 <pre class=" language-csharp"><code class="prism  language-csharp">a <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> a<span class="token punctuation">.</span>Property <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="przeciążanie-operatorów">Przeciążanie operatorów</h3>
+<h3 id="przeciążanie-operatorów">2.38 Przeciążanie operatorów</h3>
 <p>Tak, można! Nie można tylko przypisania i <code>||</code>/<code>&amp;&amp;</code> (ale można <code>|</code>/<code>&amp;</code>). Można nawet przeciążyć <code>==</code>, choć jest to niezalecane. Przypisania być przeciążane parami.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
@@ -1200,7 +1325,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; True
 </code></pre>
-<h3 id="indekser">Indekser</h3>
+<h3 id="indekser">2.39 Indekser</h3>
 <p>Nasz typ może definiować swój indekser, tj. zachowanie dla operatora <code>[]</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyTableWrapper</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span>
 <span class="token punctuation">{</span>
@@ -1218,7 +1343,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="custom-cast">Custom cast</h3>
+<h3 id="custom-cast">2.40 Custom cast</h3>
 <p>Można zdefiniować swoje własne jawne i niejawne castowanie za pomocą <code>implicit</code> i <code>explicit</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span>
 <span class="token punctuation">{</span>
@@ -1241,7 +1366,7 @@ B b <span class="token operator">=</span> <span class="token keyword">new</span>
 A bAsA <span class="token operator">=</span> <span class="token punctuation">(</span>A<span class="token punctuation">)</span>b<span class="token punctuation">;</span>
 B aAsB <span class="token operator">=</span> a<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="tuples-valuetuple">Tuples (ValueTuple)</h3>
+<h3 id="tuples-valuetuple">2.41 Tuples (ValueTuple)</h3>
 <p>Wspomnieliśmy wcześniej o Tuple’ach, jednak w C# 7 używa się ValueTuples. Pozwalają one na nazwanie pól:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> myPoint <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myPoint<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1259,7 +1384,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 &gt; 2
 </code></pre>
 <p>ValueTuple to struct.</p>
-<h3 id="wyjątki">Wyjątki</h3>
+<h3 id="wyjątki">2.42 Wyjątki</h3>
 <p>Wyjątki rzuca się <code>throw</code>, każdy wyjątek musi dziedziczyć po <code>System.Exception</code>. Wyjątki łapie się konstrukcją <code>try</code>/<code>catch</code> i można je zrethrowować.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">try</span>
 <span class="token punctuation">{</span>
@@ -1292,7 +1417,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <span class="token punctuation">}</span>
 </code></pre>
 <p>C# ma też konstrukcję <code>finally</code>. Kod w bloku <code>finally</code> wywołuje się zawsze, nawet w przypadku wyjątku. Może wystąpić bez <code>catcha</code>. Ta konstrukcja mogłaby się przydawać np. do wywoływania <code>Dispose</code>, gdyby nie <code>using</code>.</p>
-<h3 id="garbage-collector">Garbage collector</h3>
+<h3 id="garbage-collector">2.43 Garbage collector</h3>
 <p>Nie będziemy wchodzić w szczegóły GC. Najważniejsze informacje to:</p>
 <ul>
 <li>Wszystkie obiekty na stercie, do których nie istnieje ścieżka w grafie obiektów są niekatywne.</li>
@@ -1300,7 +1425,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <li>Value types są <strong>zazwyczaj</strong> alokowane na stosie. Wyjątki to między innymi pola klas i rzeczy złapane przez delegaty.</li>
 </ul>
 <p>W związku z tym, że obiekty mogą trochę poczekać zanim zostaną zniszczone, nawet jak już są niepotrzebne, powstał Dispose pattern.</p>
-<h4 id="dispose">Dispose</h4>
+<h3 id="dispose">2.44 Dispose</h3>
 <p>Jeśli klasa trzyma jakiś managed resource, który jest “ciężki”, np. file handle, połączenie z bazą danych itp., powinien implementować <code>IDisposable</code>. Interfejs ten zawiera jedną metodę <code>void Dispose()</code>, która ma zwolnić zasoby. Kanoniczna implementacja dispose pattern bez finalize wygląda tak:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Repository</span> <span class="token punctuation">:</span> IDisposable
 <span class="token punctuation">{</span>
@@ -1358,7 +1483,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="finalize">Finalize</h4>
+<h3 id="finalize">2.45 Finalize</h3>
 <p>Finalize/destruktor służy do zwalniania <em>unmanaged</em> resources. Takie zasoby też powinny być zwalniane przez <code>Dispose</code>, ale finalizer służy jako safeguard, gdyby wywołanie <code>Dispose</code> zawiodło albo jakiś JavaScript-Ninja o nim zapomniał. Zawsze implementujemy <code>Dispose</code> pattern, a potem dodajemy:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token operator">~</span>MyClass
 <span class="token punctuation">{</span>
@@ -1367,7 +1492,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <p>Po pierwsze - jeśli kiedykolwiek trzeba pracować z unmanaged resources to i tak będzie trzeba przeczytać MSDN-a jeszcze raz.<br>
 Po drugie - Finalize should be a last resort, specialize <code>SafeHandle</code> instead.</p>
-<h3 id="atrybuty">Atrybuty</h3>
+<h3 id="atrybuty">2.46 Atrybuty</h3>
 <p>Atrybuty zawierają metadane. Same z siebie nie za wiele robią, ale można się do nich dostać przez refleksję i wyłuskać dane (będziemy ich bardzo używać przy ASP i EF). Każdy atrybut ma nazwę kończącą się na <code>Attribute</code> i dziedziczy po <code>Attribute</code>.<br>
 Przykładowo atrybut <code>ObsoleteAttribute</code>, używany przez kompilator do nakrzyczenia na użytkownika danej metody:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span>
@@ -1396,14 +1521,14 @@ Przykładowo atrybut <code>ObsoleteAttribute</code>, używany przez kompilator d
     <span class="token comment">/* ... */</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="nameof"><code>nameof</code></h3>
+<h3 id="nameof">2.47 <code>nameof</code></h3>
 <p>Taki mały feature, <code>nameof</code> zostaje statycznie zamienione na nazwę zmiennej/pola/metody etc.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Duck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>$<span class="token string">"{nameof(duck.Squeak)}!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <pre><code>&gt; Squeak!
 </code></pre>
-<h3 id="delegates">Delegates</h3>
+<h3 id="delegates">2.48 Delegates</h3>
 <p>Delegaty to type-safe function references. Najpierw trzeba zadeklarować sam typ:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">delegate</span> <span class="token keyword">int</span> <span class="token function">BinaryOperator</span><span class="token punctuation">(</span><span class="token keyword">int</span> lhs<span class="token punctuation">,</span> <span class="token keyword">int</span> rhs<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -1470,7 +1595,7 @@ Func<span class="token operator">&lt;</span>Derived<span class="token punctuatio
 Func<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> f <span class="token operator">=</span> binaryOperator<span class="token punctuation">;</span>
 </code></pre>
 <p>jest nielegalne. Z tego też powodu nie można używać <code>var</code> przy deklaracjach obiektów delegatów.</p>
-<h3 id="lambdy">Lambdy</h3>
+<h3 id="lambdy">2.49 Lambdy</h3>
 <p>Bardzo często do delegatów przypisujemy krótkie wyrażenia i nie ma sensu tworzyć dla nich dedykowanych metod. I tu wchodzą lambdy, całe na biało.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp">BinaryOperator binaryOperator <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 </code></pre>
@@ -1502,7 +1627,36 @@ Lambdy mogą nie mieć argumentów</p>
 <pre class=" language-csharp"><code class="prism  language-csharp">BinaryOperator bin <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 Func<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> fun <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="lokalne-metody">Lokalne metody</h3>
+<h3 id="lazyt">2.50 <code>Lazy&lt;T&gt;</code></h3>
+<p>Wspomnieliśmy, że konwencjonalnie properties powinny nie być resource-intensive. Czasami jednak chcemy mieć propertę, której inicjalizacja zajmuje dużo czasu, bo np. reprezentuje bardzo duży obiekt. W takim wypadku możemy użyć klasy <code>Lazy&lt;T&gt;</code>. Przyjmuje ona inicjalizator i wykonuje go przy pierwszym odwołaniu do property <code>Value</code>. Każde kolejne odwołanie spowoduje zwrócenie raz utworzonego obiektu. Implementuje to schemat lazy initialization - obiekt jest tworzony dopiero wtedy, kiedy jest potrzebny, ale tylko raz.</p>
+<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GiantDuck</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">string</span> Name <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token comment">/* A lot of members */</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GiantDuckContainer</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> Lazy<span class="token operator">&lt;</span>GiantDuck<span class="token operator">&gt;</span> Duck <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> GiantDuckContainer
+    <span class="token punctuation">{</span>
+        Duck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Lazy</span><span class="token operator">&lt;</span>GiantDuck<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">GiantDuck</span><span class="token punctuation">(</span><span class="token string">"Jacuś"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Uważny słuchacz powinien się teraz spytać, jak będzie to działać, jeśli kilka wątków odwoła się do <code>Value</code> jednocześnie. Domyślnie działa to sensownie - jest thread safe. Można to explicitly wyłączyć używając innego konstruktora <code>Lazy&lt;T&gt;</code>, który przyjmuje <code>bool isThreadSafe</code>. Powinno się tego używać tylko wtedy, kiedy wydajność jest szczególnie ważna, przy zachowaniu szczególnej ostrożności i włączonym kierunkowskazie.<br>
+Jeśli chcemy tworzyć obiekt za pomocą domyślnego konstruktora, to możemy pominąć inicjalizującą lambdę, tzn.</p>
+<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">new</span> <span class="token class-name">Lazy</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// Thread safe.</span>
+<span class="token keyword">new</span> <span class="token class-name">Lazy</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Non-thread safe.</span>
+</code></pre>
+<p>są równoważne</p>
+<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">new</span> <span class="token class-name">Lazy</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">T</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// Thread safe.</span>
+<span class="token keyword">new</span> <span class="token class-name">Lazy</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">T</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Thread safe.</span>
+</code></pre>
+<p>Dodatkowo, jeśli <em>niestandardowa</em> inicjalizacja wyrzuci wyjątek, to każde kolejne odwołanie do tego samego <code>Value</code> wyrzuci ten sam wyjątek.</p>
+<h3 id="lokalne-metody">2.51 Lokalne metody</h3>
 <p>Czasami chcemy mieć metodę, którą wywołamy kilkukrotnie w czasie wywoływania naszej logiki. Nie chcemy powtarzać kodu, ale nie chcemy też tworzyć pomocniczej metody używanej tylko w jednym miejscu i nie mającej wartości poza tym konkretnym miejscem. Można by utworzyć delegata do tej metody, ale jest to niepotrzebne alokowanie pamięci i wywołanie metody potrwa trochę dłużej. Lepiej użyć lokalnej metody:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">CalculateStuff</span><span class="token punctuation">(</span><span class="token keyword">params</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span> vals<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -1523,7 +1677,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; 42
 </code></pre>
-<h3 id="to-już-jest-prawie-koniec">To już jest (prawie) koniec</h3>
+<h3 id="to-już-jest-prawie-koniec">2.52 To już jest (prawie) koniec</h3>
 <p>Zostało nam programowanie asynchroniczne i LINQ, ale o tym w następnych działach.</p>
 <h2 id="yyy-na-mimie-nie-uczą-o-solid1">3. “Yyy, na MIMie nie uczą o SOLID!!!1”</h2>
 <p>SOLID principles:</p>
@@ -1535,7 +1689,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <li><strong>D</strong>ependency inversion - depend on abstractions, not concretions.</li>
 </ul>
 <p>No to już uczą. Szczególną uwagę poświęcimy literce <strong>D</strong>.</p>
-<h3 id="inversion-of-control">Inversion of Control</h3>
+<h3 id="inversion-of-control">3.1 Inversion of Control</h3>
 <p>Inversion of Control jest sposobem na spełnienie SOLID-owego <strong>D</strong>. Załóżmy, że nasz kod chce wyciągnąć coś z bazy danych. Ma do tego repozytorium:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Duck</span>
 <span class="token punctuation">{</span>
@@ -1590,7 +1744,7 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 </code></pre>
 <p>Teraz to wywołujący <code>Maina</code> ma kontrolę nad tym, jakie repozytorium dostanie aplikacja. W szczególności może to ustawić za pomocą statycznych metadanych np. w pliku konfiguracyjnym. Teraz tę metodę można łatwo przetestować, bo możemy podać testowe repozytorium, nad którym mamy pełną kontrolę.</p>
 <p>Don’t let your code get the better of you. Take control.</p>
-<h3 id="ioc-container--service-locator">IoC container / Service locator</h3>
+<h3 id="ioc-container--service-locator">3.2 IoC Container / Service Locator</h3>
 <p>Powyższy pattern jest bardzo powszechny. Praktycznie każdy element aplikacji ma jakieś zależności i te zależności powinny być decoupled od kodu, który ich używa, połączony jedynie ładnym interfejsem. Do osiągnięcia tego używa się kontenerów IoC. My zajmiemy się Microsoftowym <code>ServiceProviderem</code> dostępnym out-of-the-box w ASP .NET Corze.</p>
 <p>Korzystając z poprzedniego przykładu użyjmy <code>IServiceProvidera</code> do ustawienia odpowiedniego repozytorium.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Startup</span>
@@ -1604,7 +1758,7 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 </code></pre>
 <p>Nie przejmując się tym, co znaczy <code>Scoped</code>, we’re done. Teraz automatycznie jeśli potrzebowali wstrzykniętego <code>IRepository</code>, <code>ServiceProvider</code> podczas instancjonowania odpowiedniego obiektu, który wymaga <code>IRepository</code> w konstruktorze, stworzy nowe repozytorium i je przekaże (akurat z <code>Mainem</code> to nie zadziała,  ale disregard that).</p>
 <p>Każda zależność w aplikacji powinna być skonfigurowana w podobny sposób. Później jeszcze do tego wrócimy i powiemy co to <code>Scoped</code> i co robią inne modyfikatory.</p>
-<h3 id="testowanie-xunit">Testowanie (XUnit)</h3>
+<h3 id="testowanie-xunit">3.3 Testowanie (XUnit)</h3>
 <p>Większość rzeczy związanych z czystym kodem i elegancką architekturą ma dwa cele - po pierwsze, wprowadzenie zmiany powinno wymagać nakładu pracy mniej więcej liniowo proporcjonalnego do rozmiaru tej zmiany. Po drugie, kod musi być testowalny. Nie będziemy tutaj poruszać zagadnień Test Driven Development, ale postaramy się przynajamniej nie robić Yolo Driven Development.</p>
 <p>Testowanie jest w swych założeniach banalne - chcemy wziąć interfejs danego elementu i przetestować, czy metody w tym interfejsie robią to, co powinny. Przypatrzymy się bardzo na szybko XUnitowi jako frameworkowi do testów i NSubstitute do mocków.</p>
 <h4 id="założenia-unit-testów">Założenia unit-testów</h4>
@@ -1615,6 +1769,7 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 <li>Zwięzłe - jeśli test jest długi, prawdopodobnie metoda jest zbyt skomplikowana</li>
 <li>Odizolowane - jeden unit test powinien testować jeden unit, wszystkie zależności powinny być zmockowane</li>
 </ul>
+<h4 id="arrange-act-assert">Arrange, Act, Assert</h4>
 <p>Standardowym workflowem do tworzenia unit testów jest AAA - Arrange, Act, Assert. Zobaczmy przykładowy test klasy <code>Calculator</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CalculatorUnitTests</span>
 <span class="token punctuation">{</span>
@@ -1713,10 +1868,10 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 <h2 id="jak-działa-asp-.net">4. Jak działa ASP .NET?</h2>
 <p>Zakładam, że wiemy, jak działa internet, protokół HTTP, że HTML jest statyczny i trzeba niestety używać JS-a itd.</p>
 <p>ASP .NET to framework do server-side web-app programming. Potrafi tworzyć ładne strony, generować  HTML-a a także da się w nim zrobić wydajne REST API. My będziemy się skupiać na tworzeniu stron.</p>
-<h3 id="dlaczego-asynchroniczne-przetwarzanie-jest-ważne">Dlaczego asynchroniczne przetwarzanie jest ważne?</h3>
+<h3 id="dlaczego-asynchroniczne-przetwarzanie-jest-ważne">4.1 Dlaczego asynchroniczne przetwarzanie jest ważne?</h3>
 <p>Na serwerze, na którym odpalony jest ASP .NET jest pewna pula wątków, tzw. worker threads. W momencie, w którym dostaniemy HTTP request z zewnątrz, jeden z tych wątków się zrywa i zaczyna na niego odpowiadać. Do zrobienia może mieć sporo, musi najpierw zrobić routing, czyli znaleźć metodę, która ma na zapytanie odpowiedzieć; później wysyła zapytania do serwisów, co w przypadku architektury mikroserwisowej łączy się z wysłaniem czegoś po sieci. Na koniec z reguły trzeba dostać się do bazy danych, a to też trochę trwa. No i jak już w końcu zrobimy to co trzeba, to należy z tym wrócić i wysłać odpowiedź.</p>
 <p>Przy prostym zapytaniu, podróż do bazy danych zajmie lwią część czasu odpowiedzi na request. Jeśli serwer czeka kilkanaście milisekund na odpowiedź bazy, to prawdopodobnie nic w tym czasie nie robi. Gdyby tylko dało się np. rzucić request do bazy i zająć się czymś innym, w czasie gdy on się przetwarza…</p>
-<h3 id="taskt-oraz-asyncawait"><code>Task&lt;T&gt;</code> oraz <code>async</code>/<code>await</code></h3>
+<h3 id="taskt-oraz-asyncawait">4.2 <code>Task&lt;T&gt;</code> oraz <code>async</code>/<code>await</code></h3>
 <p>Wszystkie metody, które</p>
 <ul>
 <li>wysyłają HTTP requesty,</li>
@@ -1745,7 +1900,7 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 </code></pre>
 <p>Teraz ktokolwiek, kto wywołał tę metodę, może kręcić się w kółko aż mu się nie znudzi i nie zrobi <code>await</code> na zwróconym przez nas <code>Tasku</code>.</p>
 <p>W szczególności, nasz worker thread może stwierdzić, że skoro nie ma nic do roboty podczas gdy pakiety lecą sobie w świat do bazy danych, to zajmie się requestem innego użytkownika. W momencie kiedy innermost <code>Task</code> się zakończy, przybiegnie dokończyć swoją pracę (<strong>uwaga:</strong> nie musi to być ten sam wątek).</p>
-<h3 id="dygresja-task.run">Dygresja: <code>Task.Run</code></h3>
+<h3 id="dygresja-task.run">4.3 Dygresja: <code>Task.Run</code></h3>
 <p>O ile programowanie asynchroniczne bardzo się przydaje przy IO-bound operations, to do CPU-bound operations również mamy bardzo proste i skuteczne mechanizmy. Po pierwsze, możemy odpalić dowolne zadanie i skierować je do puli wątków za pomocą <code>Task.Run</code>.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> task <span class="token operator">=</span> Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">SpinRoundAndRoundAndRound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">SpinRoundAndRoundAndRound</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1766,11 +1921,11 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 <span class="token keyword">await</span> Task<span class="token punctuation">.</span><span class="token function">WaitAll</span><span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Uwaga: robienie <code>await</code> jako ostatniej instrukcji w metodzie nie ma absolutnie żadnego sensu. Lepiej zwrócić taki <code>Task</code>.</p>
-<h3 id="dygresja-parallel">Dygresja: Parallel</h3>
+<h3 id="dygresja-parallel">4.4 Dygresja: <code>Parallel</code></h3>
 <p>Mamy też statyczne metody <code>Parallel.For</code> i <code>Parallel.Foreach</code>, które robią to co można się domyślić, że robią. Nie będziemy wnikać w szczegóły.</p>
-<h3 id="dygresja-plinq">Dygresja: PLINQ</h3>
+<h3 id="dygresja-plinq">4.5 Dygresja: PLINQ</h3>
 <p>Istnieje też współbieżna wersja LINQ, którą można zawołać konwertując <code>IEnumerable</code> za pomocą <code>AsParallel()</code>, ale o LINQ będzie później.</p>
-<h3 id="mvc">MVC</h3>
+<h3 id="mvc">4.6 MVC</h3>
 <p>ASP .NET Core pozwala na tworzenie aplikacji w dwóch UI architectural design patterns - MVVM (Razor Pages) i MVC. My skupimy się na MVC, które jest już established technologią.</p>
 <p>MVC to skrót od Model-View-Controller.</p>
 <p><img src="https://upday.github.io/images/blog/mvc/mvc.png" alt="enter image description here"></p>
@@ -1780,10 +1935,10 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 <li><strong>Controller</strong> - reaguje na input użytkownika, wysyłając w odpowiedzi odpowiednie widoki lub informując o tym Model.</li>
 </ul>
 <p>W ASP .NET MVC widoki to widoki, kontrolery to kontrolery, a model to cała aplikacja pod spodem. Można go podzielić na kilka warstw (np. serwisy i repozytorium).</p>
-<h3 id="kontrolery-i-routing">Kontrolery i routing</h3>
+<h3 id="kontrolery-i-routing">4.7 Kontrolery i routing</h3>
 <p>Każdy kontroler ma publiczne metody, zwane akcjami. Każda z nich reprezentuje pewien HTTP request, w przypadku aplikacji UI z reguły GET lub POST. Domyślnie odwołanie się do adresu <code>http://myapp.com/Controller/Action</code> wywoła akcję o nazwie <code>Action</code> w kontrolerze o nazwie <code>Controller</code>. Taka akcja zwraca pochodną <code>ActionResult</code>, która jest wysyłana do klienta. Najczęściej będzie to widok w przypadku apki webowej.</p>
 <p>Routing można dowolnie zmieniać i tworzyć własne reguły co i na co jest mapowane.</p>
-<h3 id="widoki">Widoki</h3>
+<h3 id="widoki">4.8 Widoki</h3>
 <p>Widoki są pisane w HTML-u z Razorem (rozszerzenie .cshtml), który pozwala na wykonanie kodu w C# podczas generowania HTML-a. Podstawową częścią danego widoku jest Model do niego przekazany. Z reguły nie jest on tożsamy z Modelem z MVC - stanowi tylko jakiś snapshot danych wyciągniętych z bazy danych i przedstawionych w przystępnej formie użytkownikowi. Z tego też powodu często mówi się na nie ViewModels.</p>
 <p>Przykładowy widok w .cshtml może wyglądać np. tak:</p>
 <pre class=" language-html"><code class="prism  language-html">@{
@@ -1866,7 +2021,7 @@ Tutaj <code>Main</code> ma kontrolę nad tym, jakiego repozytorium używa. Trzeb
 
 </code></pre>
 <p>Nasz widok jest wklejany tam, gdzie <code>@RenderBody()</code>.</p>
-<h3 id="formularze-i-walidacja">Formularze i walidacja</h3>
+<h3 id="formularze-i-walidacja">4.9 Formularze i walidacja</h3>
 <p>Aby stworzyć np. nową kaczkę, musimy stworzyć kontroler,  który przekaże użytkownikowi odpowiedni widok. Na tym widoku  musi znajdować się formularz z danymi kaczki i przycisk do submitu. Tenże przycisk wywoła inną akcję w kontrolerze, która zapisze kaczkę i przekieruje użytkownika z powrotem na stronę główną.</p>
 <p>Napiszmy więc kontroler, będzie potrzebował od nas repozytorium i dwóch akcji <code>Create</code> - jednego GET-a, który zwróci formularz, i jednego POST-a, który przyjmie wypełnione dane kaczki i zapisze ją do repozytorium.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DuckController</span> <span class="token punctuation">:</span> Controller
@@ -1990,7 +2145,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 </code></pre>
-<h3 id="identity">Identity</h3>
+<h3 id="identity">4.10 Identity</h3>
 <p>ASP .NET Core pozwala na zupełnie bezbolesne zintegrowanie systemu kont z naszą aplikacją. Wystarczy dopisać magiczne linijki w <code>Startup.ConfigureServices</code></p>
 <pre class=" language-csharp"><code class="prism  language-csharp">services<span class="token punctuation">.</span><span class="token generic-method function">AddDefaultIdentity<span class="token punctuation">&lt;</span>IdentityUser<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token generic-method function">AddRoles<span class="token punctuation">&lt;</span>IdentityRole<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -2003,7 +2158,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 </code></pre>
 <p>Dodatkowo nasza baza danych powinna dziedziczyć po <code>IdentityDbContext</code>, który ma już odpowiednie tabele skonfigurowane.</p>
 <p>Teraz możemy zabezpieczyć nasze akcje <code>Create</code> przed dostępem z zewnątrz, oznaczając je atrybutem <code>AuthorizedAttribute</code>, który nie wpuszcza użytkowników niezalogowanych. Można ten mechanizm rozszerzyć o blokowanie użytkowników nienależących do konkretnych ról, np. nieadminów.</p>
-<h3 id="co-dalej">Co dalej?</h3>
+<h3 id="co-dalej">4.11 Co dalej?</h3>
 <p>ASP .NET jest oczywiście o wiele potężniejszym narzędziem niż tylko maszynką do routingu i generowania widoków. W <code>Startup</code> możemy sobie skonfigurować cały request pipeline - po kolei wszystkie kroki, które nasza aplikacja wykonuje na requeście i responsie. Tag helpery, które już widzieliśmy w postaci <code>asp-for</code> i <code>asp-action</code>/<code>asp-controller</code> pozwalają na proste tworzenie skomplikowanych kontrolek z JS-em w środku. No ale na więcej zabawy nie starczy nam czasu.</p>
 <h2 id="jak-działa-entity-framework">5. Jak działa Entity Framework?</h2>
 <p>Entity Framework to ORM - Object-Relational Mapping. Służy do połączenia interfejsem środowiska .NET z relacyjną bazą danych. EF korzysta z trzech rzeczy:</p>
@@ -2012,7 +2167,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 <li>Encje - obiekty .NET-owe reprezentujące rekordy w bazie;</li>
 <li>LINQ to SQL - zintegrowany z C# język zapytań.</li>
 </ul>
-<h3 id="konfiguracja-bazy---encje-i-metadane">Konfiguracja bazy - encje i metadane</h3>
+<h3 id="konfiguracja-bazy---encje-i-metadane">5.1 Konfiguracja bazy - encje i metadane</h3>
 <p>Istnieją dwa podejścia do pracy z EF: database-first i code-first. Database-first zakłada, że mamy gotową bazę danych i próbujemy zbudować na niej aplikację. Code-first zakłada, że kod naszej aplikacji i obiekty C#  determinują wygląd bazy danych. There are arguments for both, tutaj będziemy zajmować się wyłącznie code-first.</p>
 <p>Potrzebujemy stworzyć pustą bazę danych, skonfigurować ASP .NET, aby się do niej łączył i zacząć tworzyć klasy.</p>
 <p>EF potrzebuje klas reprezentujących encje oraz klasy dziedziczącej po <code>DbContext</code>. To ona ma połączenia do bazy danych i udostępnia tabele w postaci właściwości <code>DbSet&lt;T&gt;</code> (implementujących <code>IQueryable&lt;T&gt;</code>).</p>
@@ -2110,10 +2265,10 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 </code></pre>
 <p>EF postanowił zrobić sobie indeks na FK, no niech mu będzie. Oczywiście mamy na to wpływ, możemy poprosić o inny indeks używając <code>HasIndex</code>. Dzięki <code>FluentAPI</code> możemy praktycznie dowolnie skonfigurować bazę danych. Stored procedures też się da, ale to poza zakresem prezentacji.</p>
 <p>Słowo o migracjach: są to po prostu instrukcje dla bazy danych w jaki sposób zaktualizować model bazy i jak to potem cofnąć (prof. Stencel wbiega do sali krzycząc EWOLUCJA MODELU!). Domyślnie zablokowane jest tworzenie migracji, które spowodowałyby utratę danych (i bardzo dobrze).</p>
-<h3 id="linq">LINQ</h3>
-<p>Najlepszą część C# zostawiliśmy sobie na koniec. Language Integrated Query to język zapytań do przetwarzania potokowego kolekcji w C#. Jest to zbiór extension methods zdefiniowanych na <code>IEnumerable</code> (LINQ to Objects), plikach XML (LINQ to XML) oraz bazach pod Entity Frameworkiem (LINQ to Entities).</p>
+<h3 id="linq">5.2 LINQ</h3>
+<p>Najlepszą część C# zostawiliśmy sobie na koniec. Language Integrated Query - LINQ (czyt. link) - to język zapytań do przetwarzania potokowego kolekcji w C#. Jest to zbiór extension methods zdefiniowanych na <code>IEnumerable</code> (LINQ to Objects), plikach XML (LINQ to XML) oraz bazach pod Entity Frameworkiem (LINQ to Entities).</p>
 <p>Zakładając źródło postaci <code>IEnumerable&lt;TSource&gt;</code>, podstawowe operacje to:</p>
-<h3 id="select---projekcja">Select - projekcja</h3>
+<h3 id="select---projekcja">5.3 <code>Select</code> - projekcja</h3>
 <p><code>IEnumerable&lt;U&gt; Select(Func&lt;TSource, U&gt;)</code> pozwala na transformację danych. Funkcja jest wywoływana dla każdego elementu i zwracany jest enumerable wyników.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> ducks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span>
 <span class="token punctuation">{</span>
@@ -2131,7 +2286,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 &gt; Piotruś
 &gt; Azathoth
 </code></pre>
-<h3 id="where---selekcjafiltrowanie">Where - selekcja/filtrowanie</h3>
+<h3 id="where---selekcjafiltrowanie">5.4 <code>Where</code> - selekcja/filtrowanie</h3>
 <p><code>IEnumerable&lt;TSource&gt; Where(Func&lt;T, bool&gt;)</code> zwraca elementy spełniające dany predykat.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> values <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
@@ -2144,7 +2299,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 &gt; 21
 &gt; 8
 </code></pre>
-<h3 id="selectmany---spłaszczenie">SelectMany - spłaszczenie</h3>
+<h3 id="selectmany---spłaszczenie">5.5 <code>SelectMany</code> - spłaszczenie</h3>
 <p><code>IEnumerable&lt;TResult&gt; SelectMany(Func&lt;TSource, IEnumerable&lt;TResult&gt;)</code> wyłuskuje enumerable wyników z każdego elementu i łączy (spłaszcza) je w jeden.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> ducks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span>
 <span class="token punctuation">{</span>
@@ -2170,7 +2325,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 <span class="token operator">&gt;</span> u
 <span class="token operator">&gt;</span> ś
 </code></pre>
-<h3 id="groupby---grupowanie">GroupBy - grupowanie</h3>
+<h3 id="groupby---grupowanie">5.6 <code>GroupBy</code> - grupowanie</h3>
 <p><code>IEnumerable&lt;IGrouping&lt;TKey, TSource&gt;&gt; GroupBy(Func&lt;TSource, TKey&gt;)</code>  grupuje po kluczu; ma wiele przeładowań, może automatycznie robić projekcję wynikowych grupowań i stosować customowe komparatory.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> ducks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span>
 <span class="token punctuation">{</span>
@@ -2194,7 +2349,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 &gt; Ducks with name Piotruś:  
 &gt; Piotruś, Red color
 </code></pre>
-<h3 id="orderby-thenby---sortowanie">OrderBy, ThenBy - sortowanie</h3>
+<h3 id="orderby-thenby---sortowanie">5.7 <code>OrderBy</code>, <code>ThenBy</code> - sortowanie</h3>
 <p><code>IOrderedEnumerable&lt;TSource&gt; OrderBy(Func&lt;TSource, TKey&gt;)</code> - sortowanie po kluczu; na wynikowym <code>IOrderedEnumerable</code> można zastosować <code>ThenBy(Func&lt;TSource, TKey&gt;</code>, żeby posortować po drugiej (trzeciej, czwartej…) wartości.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> ducks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span>
 <span class="token punctuation">{</span>
@@ -2215,7 +2370,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 &gt; Psuchawrl
 </code></pre>
 <p>Wariantem są <code>OrderByDescending</code> oraz <code>ThenByDescending</code>.</p>
-<h3 id="join">Join</h3>
+<h3 id="join">5.8 <code>Join</code></h3>
 <p><code>Join(IEnumerable&lt;TInner&gt;, Func&lt;TSource,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TSource,TInner,TResult&gt;)</code> złącza dwa enumerable po kluczach i produkuje rezultat dla każdych dwóch zmatchowanych elementów.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> ducks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span>
 <span class="token punctuation">{</span>
@@ -2235,7 +2390,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 &gt; Jacuś: Green - Green  
 &gt; Piotruś: Yellow - Yellow
 </code></pre>
-<h3 id="inne">Inne</h3>
+<h3 id="inne">5.9 Inne</h3>
 <ul>
 <li><code>Distinct</code>, można podać własny komparator;</li>
 <li><code>Skip(int)</code> - wyrzuca n elementów z początku;</li>
@@ -2245,7 +2400,7 @@ b) użyć <code>RemoteAttribute</code>, który przyjmuje akcję kontrolera zwrac
 <li><code>Union</code>, <code>Intersect</code>, <code>Except</code> - suma, przecięcie, różnica dwóch enumerabli</li>
 <li><code>Zip</code> - splot, taki <code>Select</code> na dwóch enumerablach  jednocześnie</li>
 </ul>
-<h3 id="deffered-execution">Deffered execution</h3>
+<h3 id="deferred-execution">5.10 Deferred execution</h3>
 <p>Wszystkie powyższe metody tak naprawdę się nie wykonują. LINQ buduje sobie plan wykonania zbudowanego query i wykona go dopiero przy enumeracji, to znaczy po wrzuceniu do <code>foreacha</code> albo wykonaniu jednej z operacji, które już muszą zostać wykonane natychmiastowo (agregacje i budowanie kolekcji).<br>
 Warto o tym pamiętać, po pierwsze dzięki temu można sobie złożyć zapytanie bardzo szybko z gotowych klocków i odpalić je asynchronicznie. Po drugie należy bardzo unikać tzw. multiple enumerations, przykładowo taki kod:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> ducks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Duck<span class="token operator">&gt;</span>
@@ -2267,7 +2422,7 @@ Warto o tym pamiętać, po pierwsze dzięki temu można sobie złożyć zapytani
 </code></pre>
 <p>wywołuje selekcję dwa razy. Wystarczy sobie wyobrazić, że koszt wywołania tamtej metody jest bardzo duży, albo np. operujemy na tabeli w bazie danych i robimy dwa zapytania z tym samym wynikiem zamiast jednego.</p>
 <p>Wszystkie kolejne operacje LINQ wymienione w tej prezentacji powodują immediate execution.</p>
-<h3 id="tolist---execute">ToList - execute!</h3>
+<h3 id="tolist---execute">5.11 <code>ToList</code> - execute!</h3>
 <p>Klasyka gatunku, jedna z najczęściej używanych operacji. Kiedy chcemy wykonać swoje query i zapisać wynik w <code>List&lt;TResult&gt;</code> wywołujemy <code>ToList()</code>. Można tym też przerobić dowolny <code>IEnumerable</code> na listę, np. <code>Array</code> czy <code>Dictionary</code>.</p>
 <p>Koledzy <code>ToList</code> to:</p>
 <ul>
@@ -2276,7 +2431,7 @@ Warto o tym pamiętać, po pierwsze dzięki temu można sobie złożyć zapytani
 <li><code>ToHashSet</code></li>
 <li><code>ToLookup</code></li>
 </ul>
-<h3 id="agregacje">Agregacje</h3>
+<h3 id="agregacje">5.12 Agregacje</h3>
 <p><code>int Max(Func&lt;TSource, int&gt;)</code>,<br>
 <code>int Min(Func&lt;TSource, int&gt;)</code>,<br>
 <code>int Sum(Func&lt;TSource, int&gt;)</code>,<br>
@@ -2295,7 +2450,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; 1
 </code></pre>
-<h3 id="first-last-single">First, Last, Single</h3>
+<h3 id="first-last-single">5.13 <code>First</code>, <code>Last</code>, <code>Single</code></h3>
 <p><code>TSource First()</code>, <code>TSource First(Func&lt;TSource, bool&gt;)</code><br>
 <code>TSource Last()</code>, <code>TSource Last(Func&lt;TSource, bool&gt;)</code><br>
 <code>TSource Single()</code>, <code>TSource Single(Func&lt;TSource, bool&gt;)</code><br>
@@ -2315,11 +2470,28 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 </code></pre>
 <pre><code>&gt; Azathoth
 </code></pre>
-<h3 id="empty">Empty</h3>
+<h3 id="empty">5.14 <code>Empty</code></h3>
 <p>True jeśli enumerable pusty, false otherwise. Nuff said.</p>
-<h3 id="allany">All/Any</h3>
+<h3 id="count">5.15 <code>Count</code></h3>
+<p>Zwraca liczbę elementów. Tutaj w szczególności zwróćmy uwagę na deferred execution.</p>
+<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> src <span class="token operator">=</span> _repository<span class="token punctuation">.</span>Ducks<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> src<span class="token punctuation">.</span><span class="token function">Count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> src<span class="token punctuation">.</span><span class="token function">Count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Powyższy kod powoduje dwa wykonania LINQ i jeśli <code>_repository</code> jest podłączone do bazy danych, to wykona dwa zapytania.</p>
+<p>Dodatkowo używanie <code>Count</code> do sprawdzenia pustości, czyli</p>
+<pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> isEmpty <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">Count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</code></pre>
+<p>jest skrajnie nieinteligentne, bo zajmuje czas liniowy od wielkości kolekcji.</p>
+<h3 id="all-any">5.16 <code>All</code>, <code>Any</code></h3>
 <p>Sprawdza, czy predykat zachodzi dla każdego/jakiegokolwiek elementu. Oczywiście nie jest głupie i breakuje wcześnie jeśli odpowiedź jest ustalona.</p>
-<h3 id="query-syntax">Query syntax</h3>
+<h3 id="query-syntax">5.17 Query syntax</h3>
 <p>LINQ można też stosować z pseudo-SQLową składnią. Przykładowo:</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> result <span class="token operator">=</span> ducks
   <span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span>d <span class="token operator">=</span><span class="token operator">&gt;</span> d<span class="token punctuation">.</span>Length <span class="token operator">&gt;=</span> <span class="token number">8</span><span class="token punctuation">)</span>
@@ -2332,7 +2504,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <span class="token keyword">select</span> <span class="token punctuation">(</span>name<span class="token punctuation">:</span> duck<span class="token punctuation">.</span>Name<span class="token punctuation">,</span> color1<span class="token punctuation">:</span> duck<span class="token punctuation">.</span>Color<span class="token punctuation">,</span> color2<span class="token punctuation">:</span> duck2<span class="token punctuation">.</span>Color<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Joiny wyglądają trochę lepiej, ale to tyle.</p>
-<h3 id="linq-to-entities">LINQ to Entities</h3>
+<h3 id="linq-to-entities">5.18 LINQ to Entities</h3>
 <p>Jeśli będziemy wywoływać LINQ na <code>DbSetach</code>, to wykonanie query spowoduje wysłanie zapytania do bazy danych. Przykładowo</p>
 <pre class=" language-csharp"><code class="prism  language-csharp"><span class="token keyword">var</span> theYellowDuckNames <span class="token operator">=</span> ducks
   <span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span>d <span class="token operator">=</span><span class="token operator">&gt;</span> d<span class="token punctuation">.</span>Color <span class="token operator">==</span> Color<span class="token punctuation">.</span>Yellow<span class="token punctuation">)</span>
@@ -2344,7 +2516,7 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <span class="token keyword">FROM</span> <span class="token string">"Ducks"</span> <span class="token keyword">AS</span> <span class="token number">d</span>
 <span class="token keyword">WHERE</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token string">"Color"</span> <span class="token operator">=</span> <span class="token number">0</span>
 </code></pre>
-<h4 id="include">Include</h4>
+<h4 id="include"><code>Include</code></h4>
 <p>Zamiast robić joiny, możemy wywoływać domyślne joiny po FK za pomocą <code>Include</code>. Jeśli nie dodamy żadnego <code>Include</code>, standardowo wszystkie navigation properties będą puste, to znaczy kolekcje puste, pojedyncze referencje równe <code>null</code>. Jeśli dodamy <code>Include</code> na tej property, wygeneruje się SQL z odpowiednim Joinem.</p>
 <pre class=" language-csharp"><code class="prism  language-csharp">ducks<span class="token punctuation">.</span><span class="token function">Include</span><span class="token punctuation">(</span>d <span class="token operator">=</span><span class="token operator">&gt;</span> d<span class="token punctuation">.</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span>d <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>d<span class="token punctuation">.</span>Name<span class="token punctuation">,</span> d<span class="token punctuation">.</span>User<span class="token punctuation">.</span>UserName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -2389,7 +2561,9 @@ Console<span class="token punctuation">.</span><span class="token function">Writ
 <h2 id="koniec">Koniec</h2>
 <p>Dziękuję za uwagę.</p>
 <p>Copyright © Mateusz Gienieczko 2019</p>
-</div>
+
+    </div>
+  </div>
 </body>
 
 </html>
